@@ -8,6 +8,12 @@
 <meta property="og:title" content="Subash MK — One Mind. Nine Domains.">
 <meta property="og:description" content="Polymath builder from Coimbatore. Explore my nine worlds — guided by Rex, my AI mascot.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://subasmk.github.io/scroll-quest/">
+<meta property="og:image" content="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Subash MK — Field Notes from Nine Worlds">
+<meta name="twitter:description" content="AI & Data Science student, founder of Nientra. One mind, nine domains, guided by Rex.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif">
 <style>
 :root{
   --ink:#14161c; --paper:#fff9ef; --card:#ffffff;
@@ -801,6 +807,8 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 #chatInput::placeholder{color:#5d6a7d}
 .filter-btn,.tool-btn{font-size:11px}
 
+/* UPGRADE LAYER - keyboard focus visibility (mouse users see no change) */
+:focus-visible{outline:3px solid #d94f2b;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -963,7 +971,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 
 <div id="chatPanel" role="dialog" aria-label="Chat with Rex">
   <div class="chead">
-    <img src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="Rex">
+    <img src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="Rex" loading="lazy" decoding="async">
     <div><b>Rex, Subash's assistant</b><i>I know all 9 worlds. Ask me anything.</i></div>
     <button id="chatClose" aria-label="Close chat">&times;</button>
   </div>
