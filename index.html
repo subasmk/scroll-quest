@@ -398,6 +398,83 @@ footer a{color:var(--amber)}
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 
+
+/* ===== INTERACTIVE UNIVERSE UPGRADE ===== */
+:root{--line:rgba(226,238,255,.13);--lime:#c6ff4d;--glass:rgba(15,24,39,.78)}
+body{background-color:#070b13}
+::selection{background:#c6ff4d;color:#08100a}
+a:focus-visible,button:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+header{transition:padding .25s ease,background .25s ease}
+header.scrolled{padding-top:8px;padding-bottom:8px;background:rgba(6,10,18,.94)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:180px;pointer-events:none;background:linear-gradient(transparent,#080b12)}
+.hero>*:not(.blob){position:relative;z-index:1}
+.hero .kick:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);margin:0 10px 1px 0;box-shadow:0 0 14px var(--lime)}
+.hero h1{background:linear-gradient(110deg,#fff 15%,#cbd8ea 48%,#c6ff4d 95%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero h1 .sun{color:var(--lime);-webkit-text-fill-color:var(--lime)}
+.hero .rotwrap #rotWord{text-shadow:0 0 28px #c6ff4d35}
+.hero .sub{max-width:680px}
+.stat{border-color:rgba(255,255,255,.13);background:rgba(255,255,255,.045)}
+.stat b{color:var(--lime)}
+.marquee{transform:none;border-block:1px solid #ffffff18}
+.marquee .track{animation-duration:34s}
+section{max-width:1200px}
+.secHead .kick{color:var(--lime)}
+.secHead h2{letter-spacing:-.055em}
+#mapCanvas{cursor:crosshair;touch-action:pan-y;aspect-ratio:1040/560}
+.mapHint{color:#8fa0b8}
+.world-tools{max-width:100%;margin:0 auto 22px;padding:18px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:0 15px 45px #0003}
+.world-search{display:flex;align-items:center;gap:12px;padding:12px 15px;border:1px solid var(--line);border-radius:12px;background:#080f1c;color:#9cacbf}
+.world-search span{font-size:24px;line-height:1}
+.world-search input{width:100%;border:0;outline:0;background:transparent;color:#f4f7fb;font:inherit;font-size:14px}
+.world-search input::placeholder{color:#718198}
+.world-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.filter-btn,.tool-btn{font:700 12px/1.2 inherit;font-family:inherit;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:9px 13px;color:#c7d2e1;background:#ffffff08;transition:.2s ease}
+.filter-btn:hover,.tool-btn:hover{border-color:#c6ff4d88;color:var(--lime);transform:translateY(-1px)}
+.filter-btn.active{background:#c6ff4d;color:#10170a;border-color:#c6ff4d}
+.filter-btn span{opacity:.7;margin-left:5px}
+.world-tool-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.tool-btn.primary{background:#c6ff4d;color:#10170a;border-color:#c6ff4d}
+.world-result{font-size:11px;color:#8798ae;margin-top:12px;letter-spacing:.4px}
+.world.is-filtered-out{display:none}
+.world{scroll-margin-top:100px;transition:opacity .3s ease,transform .3s ease,border-color .25s ease,box-shadow .25s ease}
+.world .proof a{transition:color .2s ease}
+.world .proof a:hover{color:#fff}
+.world .chips{gap:7px}
+.world .chip{transition:background .2s,border-color .2s}
+.world .chip:hover{background:#c6ff4d18;border-color:#c6ff4d66}
+.forge .steps .step{transition:transform .2s,border-color .2s,background .2s}
+.forge .steps .step:hover{transform:translateY(-3px);border-color:var(--lime);background:#c6ff4d12}
+.nientra{box-shadow:0 25px 70px #0005}
+.nientra .btn{box-shadow:0 8px 25px #0003}
+.quick-dock{position:fixed;right:16px;bottom:125px;z-index:280;display:flex;flex-direction:column;gap:8px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}
+.quick-dock.visible{opacity:1;transform:none;pointer-events:auto}
+.quick-dock button{width:42px;height:42px;border-radius:13px;border:1px solid #ffffff25;background:#111b2b;color:#edf4ff;box-shadow:0 8px 24px #0007;cursor:pointer;font-size:18px;backdrop-filter:blur(12px);transition:.2s}
+.quick-dock button:hover{background:#c6ff4d;color:#10170a;transform:translateY(-2px)}
+.tour-toast{position:fixed;left:50%;bottom:80px;z-index:320;transform:translate(-50%,12px);opacity:0;pointer-events:none;padding:11px 17px;border:1px solid #c6ff4d55;border-radius:999px;background:#111b2b;color:#edf4ff;box-shadow:0 12px 40px #0009;font-size:12px;transition:.25s;max-width:calc(100vw - 30px);text-align:center}
+.tour-toast.show{opacity:1;transform:translate(-50%,0)}
+#starHud{transition:transform .3s ease,opacity .3s}
+#starHud span{color:#a8b7cb}
+#bubble{backdrop-filter:blur(16px)}
+#chatPanel{backdrop-filter:blur(18px)}
+#chatInput::placeholder{color:#7e8ea5}
+#chatChips button{transition:transform .18s,border-color .18s}
+#chatChips button:active{transform:scale(.96)}
+footer{border-top:1px solid var(--line);max-width:1100px;margin:0 auto}
+@media(max-width:640px){
+ .world-tools{padding:13px}
+ .world-filters{gap:6px}
+ .filter-btn{padding:8px 10px;font-size:11px}
+ .world-tool-actions>*{flex:1}
+ .quick-dock{right:10px;bottom:112px}
+ .quick-dock button{width:38px;height:38px}
+ .tour-toast{bottom:68px}
+ #mapCanvas{min-height:210px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero .blob,.hero .scrollHint,.marquee .track{animation:none!important}
+ .reveal{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -449,7 +526,7 @@ footer a{color:var(--amber)}
     <p>A polymath isn't nine separate people — the power is in the <b>connections</b>. AI feeds my games,
     security sharpens my apps, cloud ships them all. Tap a world to jump into it.</p>
   </div>
-  <canvas id="mapCanvas" width="1040" height="560" class="reveal"></canvas>
+  <canvas id="mapCanvas" width="1040" height="560" class="reveal" tabindex="0" role="img" aria-label="Interactive map of nine connected skill worlds. Use arrow keys to move between worlds and Enter to explore."></canvas>
   <p class="mapHint">Tap / click a node — Rex will take you there.</p>
 </section>
 
@@ -460,6 +537,20 @@ footer a{color:var(--amber)}
     <h2>World by world</h2>
     <p>Every world shows its status honestly — <b>Shipped</b> means you can try it, <b>Building</b> means proof is
     in progress, <b>Exploring</b> means I'm learning it in public right now.</p>
+  </div>
+  <div class="world-tools reveal" id="worldTools" aria-label="World explorer controls">
+    <label class="world-search"><span aria-hidden="true">⌕</span><input id="worldSearch" type="search" placeholder="Search a world, skill or technology…" aria-label="Search worlds"></label>
+    <div class="world-filters" role="group" aria-label="Filter worlds">
+      <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true">All worlds <span>09</span></button>
+      <button class="filter-btn" data-filter="shipped" type="button" aria-pressed="false">Shipped</button>
+      <button class="filter-btn" data-filter="building" type="button" aria-pressed="false">Building</button>
+      <button class="filter-btn" data-filter="exploring" type="button" aria-pressed="false">Exploring</button>
+    </div>
+    <div class="world-tool-actions">
+      <button class="tool-btn primary" id="tourBtn" type="button">▶ Start guided tour</button>
+      <button class="tool-btn" id="randomWorldBtn" type="button">✦ Surprise me</button>
+    </div>
+    <p id="worldResult" class="world-result" aria-live="polite">Showing all 9 worlds · Pick any world to begin</p>
   </div>
   <div id="worldList"></div>
 
@@ -517,6 +608,13 @@ footer a{color:var(--amber)}
 <div id="starHud" aria-hidden="true">&#11088; <b id="starCount">0/9</b><span id="starWorld">QUEST START — SCROLL!</span></div>
 
 <!-- ================= MASCOT / ASSISTANT ================= -->
+
+<div id="quickDock" class="quick-dock" aria-label="Quick navigation">
+  <button type="button" id="topBtn" aria-label="Back to top" title="Back to top">↑</button>
+  <button type="button" id="soundBtn" aria-label="Toggle interface sounds" aria-pressed="false" title="Toggle interface sounds">♫</button>
+</div>
+<div id="tourToast" class="tour-toast" role="status" aria-live="polite"></div>
+
 <div id="mascotWrap">
   <div id="bubble"></div>
   <button id="mascotBtn" aria-label="Chat with Rex, the assistant">
@@ -639,56 +737,64 @@ addEventListener('scroll', ()=>{
 const revealObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold:.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ================================================= KNOWLEDGE MAP (canvas) */
+/* ================================================= KNOWLEDGE MAP — ANIMATED GALAXY */
 const cv = document.getElementById('mapCanvas'), ctx = cv.getContext('2d');
-const POS = { ai:[.50,.16], fullstack:[.22,.34], game:[.78,.34], app:[.13,.62], cyber:[.36,.55],
-              cloud:[.64,.55], devops:[.87,.62], web3:[.36,.86], reverse:[.64,.86] };
+const POS = { ai:[.50,.17], fullstack:[.22,.34], game:[.78,.34], app:[.13,.65], cyber:[.36,.55],
+              cloud:[.64,.55], devops:[.87,.65], web3:[.36,.86], reverse:[.64,.86] };
 const LINKS = [['ai','fullstack'],['ai','game'],['ai','app'],['fullstack','app'],['fullstack','cloud'],
   ['fullstack','cyber'],['game','app'],['game','cloud'],['cyber','reverse'],['cyber','cloud'],
   ['cloud','devops'],['cloud','web3'],['web3','reverse'],['devops','game'],['ai','cyber']];
-let hoverId = null, t0 = performance.now();
-function nodeXY(id){ const W = cv.width, H = cv.height; const p = POS[id]; return [p[0]*W, p[1]*H]; }
+let hoverId = null, focusIndex = 0, mapFrame = 0, mapVisible = true, mapLast = 0;
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stars = Array.from({length:95},(_,i)=>({x:((i*97)%997)/997,y:((i*193)%991)/991,r:.5+(i%4)*.35,a:.16+(i%5)*.08}));
+function nodeXY(id,t){const p=POS[id],w=cv.width,h=cv.height;return [p[0]*w,p[1]*h+Math.sin(t*.8+WORLDS.findIndex(x=>x.id===id)*1.7)*5]}
 function drawMap(now){
-  const W = cv.width, H = cv.height; ctx.clearRect(0,0,W,H);
-  const t = (now - t0) / 1000;
-  ctx.lineWidth = 2;
-  LINKS.forEach(([a,b], i)=>{
-    const [x1,y1] = nodeXY(a), [x2,y2] = nodeXY(b);
-    const active = hoverId && (a === hoverId || b === hoverId);
-    ctx.strokeStyle = active ? '#e03131' : 'rgba(20,22,28,0.16)';
-    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
-    const f = ((t * .25 + i * .17) % 1);
-    ctx.fillStyle = active ? '#e03131' : 'rgba(20,22,28,0.35)';
-    ctx.beginPath(); ctx.arc(x1 + (x2-x1)*f, y1 + (y2-y1)*f, active ? 4 : 2.6, 0, 7); ctx.fill();
+  if(!mapVisible){mapFrame=0;return}
+  if(reduceMotion && now-mapLast<1200){mapFrame=requestAnimationFrame(drawMap);return}
+  mapLast=now;
+  const W=cv.width,H=cv.height,t=now/1000;
+  ctx.clearRect(0,0,W,H);
+  const bg=ctx.createRadialGradient(W*.5,H*.48,10,W*.5,H*.48,W*.7);
+  bg.addColorStop(0,'#18263b');bg.addColorStop(.65,'#0d1728');bg.addColorStop(1,'#080e19');
+  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+  stars.forEach((p,i)=>{ctx.globalAlpha=p.a*(reduceMotion?1:.72+.28*Math.sin(t+i));ctx.fillStyle='#d9e8ff';ctx.beginPath();ctx.arc(p.x*W,p.y*H,p.r,0,Math.PI*2);ctx.fill()});
+  ctx.globalAlpha=1;
+  LINKS.forEach(([a,b],i)=>{
+    const [x1,y1]=nodeXY(a,t),[x2,y2]=nodeXY(b,t),active=hoverId&&(a===hoverId||b===hoverId);
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+    ctx.strokeStyle=active?'rgba(198,255,77,.85)':'rgba(151,178,214,.2)';
+    ctx.lineWidth=active?3:1.5;ctx.stroke();
+    if(!reduceMotion){const f=(t*.12+i*.137)%1;ctx.beginPath();ctx.arc(x1+(x2-x1)*f,y1+(y2-y1)*f,active?4:2.5,0,Math.PI*2);ctx.fillStyle=active?'#c6ff4d':'#78a9d8';ctx.fill()}
   });
-  WORLDS.forEach((w, i)=>{
-    const [x, y0] = nodeXY(w.id);
-    const y = y0 + Math.sin(t * 1.2 + i * 1.7) * 5;
-    const r = (hoverId === w.id) ? 34 : 27;
-    ctx.beginPath(); ctx.arc(x, y, r + 9, 0, 7); ctx.fillStyle = w.hex + '22'; ctx.fill();
-    ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = '#ffffff'; ctx.fill();
-    ctx.lineWidth = 3; ctx.strokeStyle = w.hex; ctx.stroke();
-    ctx.font = '24px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(w.icon, x, y + 1);
-    ctx.font = '700 12.5px Segoe UI, Arial'; ctx.fillStyle = '#14161c';
-    const label = w.name.replace(' Engineering & Agents','').replace(' Development','').replace(' Computing','').replace(' / Web3','').replace('Reverse ','Rev. ');
-    ctx.fillText(label.toUpperCase(), x, y + r + 16);
-    w._mx = x; w._my = y; w._mr = r + 10;
+  WORLDS.forEach((w,i)=>{
+    const [x,y]=nodeXY(w.id,t),active=hoverId===w.id||focusIndex===i,r=active?34:27;
+    ctx.beginPath();ctx.arc(x,y,r+12,0,Math.PI*2);ctx.fillStyle=w.hex+'20';ctx.fill();
+    ctx.beginPath();ctx.arc(x,y,r+4,0,Math.PI*2);ctx.strokeStyle=active?'#c6ff4d':w.hex+'88';ctx.lineWidth=active?3:1;ctx.stroke();
+    ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle='#111d30';ctx.fill();ctx.strokeStyle=w.hex;ctx.lineWidth=3;ctx.stroke();
+    ctx.font='24px system-ui, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(w.icon,x,y+1);
+    const label=w.name.replace(' Engineering & Agents','').replace(' Development','').replace(' Computing','').replace(' / Web3','').replace('Reverse ','Rev. ').toUpperCase();
+    ctx.font='700 12px system-ui, sans-serif';ctx.fillStyle='#e5eefb';ctx.shadowColor='#000';ctx.shadowBlur=5;ctx.fillText(label,x,y+r+18);ctx.shadowBlur=0;
+    w._mx=x;w._my=y;w._mr=r+13;
   });
-  requestAnimationFrame(drawMap);
+  mapFrame=requestAnimationFrame(drawMap);
 }
-requestAnimationFrame(drawMap);
+const mapVisibility=new IntersectionObserver(es=>{mapVisible=es[0].isIntersecting;if(mapVisible&&!mapFrame)mapFrame=requestAnimationFrame(drawMap);if(!mapVisible&&mapFrame){cancelAnimationFrame(mapFrame);mapFrame=0}},{threshold:.02});
+mapVisibility.observe(cv);
+mapFrame=requestAnimationFrame(drawMap);
 function mapPick(e){
-  const rect = cv.getBoundingClientRect();
-  const sx = cv.width / rect.width, sy = cv.height / rect.height;
-  const cx = (e.clientX - rect.left) * sx, cy = (e.clientY - rect.top) * sy;
-  let best = null, bd = 1e9;
-  WORLDS.forEach(w => { const d = Math.hypot(cx - w._mx, cy - w._my); if (d < bd) { bd = d; best = w; } });
-  return (best && bd < best._mr + 16) ? best : null;
+  const rect=cv.getBoundingClientRect(),sx=cv.width/rect.width,sy=cv.height/rect.height;
+  const x=(e.clientX-rect.left)*sx,y=(e.clientY-rect.top)*sy;
+  let best=null,dist=Infinity;
+  WORLDS.forEach(w=>{const d=Math.hypot(x-w._mx,y-w._my);if(d<dist){dist=d;best=w}});
+  return best&&dist<best._mr+18?best:null;
 }
-cv.addEventListener('pointermove', e => { const w = mapPick(e); hoverId = w ? w.id : null; cv.style.cursor = w ? 'pointer' : 'default'; });
-cv.addEventListener('pointerleave', ()=> hoverId = null);
-cv.addEventListener('click', e => { const w = mapPick(e); if (w) goWorld(w); });
+cv.addEventListener('pointermove',e=>{const w=mapPick(e);hoverId=w?w.id:null;cv.style.cursor=w?'pointer':'default'});
+cv.addEventListener('pointerleave',()=>hoverId=null);
+cv.addEventListener('click',e=>{const w=mapPick(e);if(w){focusIndex=WORLDS.indexOf(w);goWorld(w)}});
+cv.addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown','ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();focusIndex=(focusIndex+(['ArrowRight','ArrowDown'].includes(e.key)?1:8))%9;hoverId=WORLDS[focusIndex].id}
+  else if(e.key==='Enter'||e.key===' '){e.preventDefault();goWorld(WORLDS[focusIndex])}
+});
 
 /* ================================================= MASCOT */
 const GIF = 'https://raw.githubusercontent.com/subasmk/shiba-desktop/main/';
@@ -850,6 +956,81 @@ if (matchMedia('(pointer:fine)').matches) {
     requestAnimationFrame(glowLoop);
   })();
 }
+
+/* ================================================= WORLD EXPLORER CONTROLS */
+let activeFilter='all', tourIndex=-1, tourTimer=null;
+const searchBox=document.getElementById('worldSearch');
+const filterButtons=[...document.querySelectorAll('.filter-btn')];
+const worldResult=document.getElementById('worldResult');
+function applyWorldFilters(){
+  const q=(searchBox.value||'').trim().toLowerCase();let count=0;
+  WORLDS.forEach(w=>{
+    const el=document.getElementById('world-'+w.id);
+    const text=[w.name,w.tag,w.statusTxt,...w.chips,...w.proofs.map(p=>p.t+' '+p.d)].join(' ').toLowerCase();
+    const visible=(activeFilter==='all'||w.status===activeFilter)&&(!q||text.includes(q));
+    el.classList.toggle('is-filtered-out',!visible);if(visible)count++;
+  });
+  worldResult.textContent=count+' of 9 worlds shown'+(q?' · Search: “'+q+'”':'')+' · '+(activeFilter==='all'?'All statuses':activeFilter);
+}
+searchBox.addEventListener('input',applyWorldFilters);
+filterButtons.forEach(btn=>btn.addEventListener('click',()=>{
+  activeFilter=btn.dataset.filter;
+  filterButtons.forEach(b=>{const on=b===btn;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
+  applyWorldFilters();
+}));
+document.getElementById('randomWorldBtn').addEventListener('click',()=>{
+  const visible=WORLDS.filter(w=>!document.getElementById('world-'+w.id).classList.contains('is-filtered-out'));
+  if(!visible.length){searchBox.value='';activeFilter='all';filterButtons.forEach(b=>{const on=b.dataset.filter==='all';b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});applyWorldFilters()}
+  const pool=WORLDS.filter(w=>!document.getElementById('world-'+w.id).classList.contains('is-filtered-out'));
+  const w=pool[Math.floor(Math.random()*pool.length)];if(w)goWorld(w);
+});
+function showTourToast(msg){const el=document.getElementById('tourToast');el.textContent=msg;el.classList.add('show');clearTimeout(tourTimer);tourTimer=setTimeout(()=>el.classList.remove('show'),2600)}
+function startTour(){
+  tourIndex=0;showTourToast('Guided tour started · World 1 of 9');
+  const step=()=>{if(tourIndex>=WORLDS.length){tourIndex=-1;showTourToast('Tour complete · You explored all nine worlds');return}
+    const w=WORLDS[tourIndex];goWorld(w);showTourToast('World '+(tourIndex+1)+' / 9 · '+w.name);
+    tourIndex++;tourTimer=setTimeout(step,4300);
+  };step();
+}
+document.getElementById('tourBtn').addEventListener('click',()=>{
+  if(tourIndex>=0){clearTimeout(tourTimer);tourIndex=-1;showTourToast('Guided tour paused');return}
+  startTour();
+});
+/* Keyboard shortcut: / focuses world search; Escape clears it and closes chat. */
+addEventListener('keydown',e=>{
+  if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();searchBox.focus();document.getElementById('worldTools').scrollIntoView({behavior:'smooth',block:'center'})}
+  if(e.key==='Escape'){if(panel.classList.contains('open'))panel.classList.remove('open');if(searchBox===document.activeElement){searchBox.value='';applyWorldFilters();searchBox.blur()}}
+});
+/* Quick dock */
+const quickDock=document.getElementById('quickDock');
+addEventListener('scroll',()=>{quickDock.classList.toggle('visible',scrollY>420);document.querySelector('header').classList.toggle('scrolled',scrollY>30)},{passive:true});
+document.getElementById('topBtn').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+/* Interface sound is opt-in and only uses a tiny oscillator; no audio plays by default. */
+let soundOn=false,audioCtx=null;
+document.getElementById('soundBtn').addEventListener('click',()=>{
+  soundOn=!soundOn;const b=document.getElementById('soundBtn');b.setAttribute('aria-pressed',String(soundOn));b.textContent=soundOn?'♫':'♪';showTourToast(soundOn?'Interface sound enabled':'Interface sound muted');
+  if(soundOn){try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();}catch(_){soundOn=false;b.setAttribute('aria-pressed','false');showTourToast('Audio is not available in this browser')}}
+});
+function playUiTone(freq=520){
+  if(!soundOn||!audioCtx)return;
+  try{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=freq;o.type='sine';g.gain.setValueAtTime(.035,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.09);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.1)}catch(_){}
+}
+document.querySelectorAll('.filter-btn,.tool-btn').forEach(b=>b.addEventListener('click',()=>playUiTone(640)));
+/* Persist visitor quest completion locally, on this device only. */
+const QUEST_KEY='scrollquest-progress-v1';
+try{
+  const saved=JSON.parse(localStorage.getItem(QUEST_KEY)||'[]');
+  saved.forEach(id=>{if(WORLDS.some(w=>w.id===id)){collected.add(id);document.getElementById('world-'+id).classList.add('cleared');document.getElementById('tdot-'+id)?.classList.add('got')}});
+  starCount.textContent=collected.size+'/9';
+}catch(_){}
+const originalStarCount=starCount;
+const saveQuest=()=>{try{localStorage.setItem(QUEST_KEY,JSON.stringify([...collected]))}catch(_){}};
+const questObserver=new MutationObserver(saveQuest);
+document.querySelectorAll('.world').forEach(el=>questObserver.observe(el,{attributes:true,attributeFilter:['class']}));
+/* Update canvas accessible label with the selected world. */
+const originalGoWorld=goWorld;
+goWorld=function(w){focusIndex=WORLDS.indexOf(w);cv.setAttribute('aria-label','Selected world: '+w.name+'. Use arrow keys to move between worlds and Enter to explore.');originalGoWorld(w);playUiTone(760)};
+
 </script>
 </body>
 </html>
