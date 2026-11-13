@@ -219,6 +219,185 @@ footer a{font-weight:700}
   #questTrack{height:48px} #runner{width:40px;height:40px;bottom:16px} #questTrack .flag{bottom:16px;font-size:18px}
   #mascotWrap{bottom:56px} #chatPanel{bottom:132px} #starHud{bottom:58px;font-size:12px;padding:6px 11px} #starHud span{display:none}
 }
+
+/* =========================================================
+   SCROLL QUEST — VISUAL REFRESH
+   Premium midnight / electric-lime interface.
+   Existing quest, map, Rex and scroll interactions are kept.
+========================================================= */
+:root{
+  --ink:#edf2f7; --paper:#080b12; --card:#111827;
+  --ai:#a78bfa; --fullstack:#38bdf8; --app:#f472b6; --game:#fb7185;
+  --cyber:#34d399; --cloud:#22d3ee; --devops:#fb923c; --web3:#c084fc; --reverse:#94a3b8;
+  --amber:#c6ff4d; --mut:#9aa8bb;
+}
+html{scroll-padding-top:86px}
+body{
+  background:#080b12;color:#edf2f7;
+  background-image:radial-gradient(ellipse at 50% -15%,#1b2944 0%,transparent 48%),
+    radial-gradient(ellipse at 100% 60%,#14231f 0%,transparent 34%);
+}
+body::before{opacity:.28;mix-blend-mode:screen}
+#glow{background:radial-gradient(circle,rgba(198,255,77,.13),rgba(56,189,248,.08) 44%,transparent 68%);mix-blend-mode:screen}
+#progressBar{height:3px;background:linear-gradient(90deg,#c6ff4d,#38bdf8,#a78bfa)}
+header{
+  top:3px;padding:13px clamp(14px,4vw,54px);
+  background:rgba(8,11,18,.78);backdrop-filter:blur(22px) saturate(150%);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.logo{color:#f8fafc;font-size:16px;letter-spacing:2px}
+.logo span{color:var(--amber)}
+.logo small{color:#91a0b5;letter-spacing:3px}
+nav.mainnav{gap:clamp(10px,2vw,25px)}
+nav.mainnav a{color:#c4cedc;font-size:12px;transition:color .2s ease}
+nav.mainnav a:hover{color:var(--amber)}
+nav.mainnav a.cta{background:var(--amber);color:#10150b;border:1px solid var(--amber);padding:10px 17px}
+nav.mainnav a.cta:hover{background:#e0ff9b;color:#10150b}
+.hero{
+  min-height:94svh;align-items:flex-start;text-align:left;
+  padding:clamp(120px,17vh,170px) clamp(22px,10vw,150px) 76px;
+  background:radial-gradient(ellipse at 75% 34%,rgba(167,139,250,.13),transparent 36%),
+    radial-gradient(ellipse at 15% 78%,rgba(198,255,77,.07),transparent 36%);
+}
+.hero .blob{opacity:.35;filter:blur(90px)}
+.hero .kick,.secHead .kick{color:var(--amber);font-size:11px;letter-spacing:3.5px}
+.hero h1{
+  color:#f8fafc;font-size:clamp(58px,11vw,142px);letter-spacing:-.075em;
+  line-height:.9;margin:20px 0 8px;text-shadow:0 18px 65px #0008;
+}
+.hero h1 .sun{color:var(--amber);text-shadow:0 0 55px #c6ff4d35}
+.hero .rotwrap{color:#dbe5f1;font-size:clamp(22px,4vw,42px);letter-spacing:-1.5px;margin-top:22px}
+.hero .rotwrap #rotWord{color:var(--amber)}
+.hero p.sub{color:#aab7c9;max-width:620px;font-size:clamp(15px,1.5vw,18px);line-height:1.85;margin-top:18px}
+.hero p.sub b{color:#f1f5f9}
+.hero .ctaRow{justify-content:flex-start;margin-top:32px}
+.btn{border-radius:12px;border:1px solid rgba(255,255,255,.2);padding:14px 22px;font-size:13px;letter-spacing:.2px}
+.btn.solid{background:var(--amber);border-color:var(--amber);color:#10150b;box-shadow:0 8px 30px #c6ff4d1b}
+.btn.solid:hover{background:#e0ff9b;border-color:#e0ff9b;color:#10150b}
+.btn.ghost{color:#e5edf7;background:rgba(255,255,255,.035)}
+.btn.ghost:hover{background:rgba(198,255,77,.1);border-color:var(--amber);color:var(--amber)}
+.stats{justify-content:flex-start;gap:10px;margin-top:42px}
+.stat{
+  min-width:112px;background:rgba(255,255,255,.045);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:13px 16px;
+  box-shadow:0 12px 35px #0003;
+}
+.stat b{color:#f8fafc;font-size:22px;letter-spacing:-.5px}
+.stat i{color:#91a0b5;font-size:9px;letter-spacing:1.5px;margin-top:3px}
+.hero .scrollHint{color:#77869c;text-align:left;margin-top:52px;font-size:10px}
+.marquee{
+  background:var(--amber);color:#10150b;padding:12px 0;
+  transform:rotate(-.5deg) scale(1.02);box-shadow:0 10px 40px #0003;
+}
+.marquee .track{font-size:12px;letter-spacing:2px}
+.marquee .track b{color:#4e6d12}
+section{max-width:1160px;padding:112px 22px 80px}
+.secHead{margin-bottom:42px}
+.secHead h2{color:#f3f6fb;font-size:clamp(32px,5vw,54px);letter-spacing:-2px}
+.secHead p{color:#9aa8bb;line-height:1.8}
+#mapCanvas{
+  background:radial-gradient(ellipse at 50% 40%,#17243a,#0d1421 72%);
+  border:1px solid rgba(255,255,255,.14);border-radius:22px;
+  box-shadow:0 25px 70px #0005;
+}
+.mapHint{color:#8796aa}
+.world{
+  border:1px solid rgba(255,255,255,.13);border-top:3px solid var(--wc);
+  border-radius:20px;padding:clamp(22px,3vw,34px);
+  margin-bottom:22px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018) 62%),#0e1522;
+  box-shadow:0 18px 55px #0003;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.world:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--wc) 65%,transparent);box-shadow:0 25px 65px #0005}
+.world.cleared{border-color:var(--wc);box-shadow:0 0 0 1px color-mix(in srgb,var(--wc) 30%,transparent),0 20px 60px #0005}
+.world::before{color:#fff;opacity:.035}
+.world .dot{border:1px solid color-mix(in srgb,var(--wc) 50%,transparent);background:color-mix(in srgb,var(--wc) 14%,#111827)!important}
+.world h3{letter-spacing:-.8px}
+.world .tag{color:#aab7c9;line-height:1.8}
+.badge{font-size:9px;letter-spacing:1.2px;border-width:1px}
+.badge.shipped{color:#6ee7b7;border-color:#1f8b68;background:#0d3b2e}
+.badge.building{color:#fdba74;border-color:#a65a20;background:#3b2414}
+.badge.exploring{color:#93c5fd;border-color:#326aa5;background:#142b45}
+.proofs{grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:13px}
+.proof{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:17px;transition:background .2s,border-color .2s,transform .2s}
+.proof:hover{background:rgba(255,255,255,.065);border-color:color-mix(in srgb,var(--wc) 55%,transparent);transform:translateY(-3px)}
+.proof b{color:#edf2f7;font-size:14px}
+.proof p{color:#91a0b5;line-height:1.7}
+.proof a{color:var(--amber);border-bottom:1px solid #c6ff4d66}
+.chip{color:#bac7d8;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.11);font-size:11px}
+.forge{
+  background:linear-gradient(135deg,#18243a,#101827 65%,#14251e);
+  border:1px solid rgba(255,255,255,.13);border-radius:22px;padding:clamp(26px,5vw,48px);
+}
+.forge h3{color:#f8fafc;letter-spacing:-.8px}
+.forge h3 b{color:var(--amber)}
+.forge p{color:#aab7c9;line-height:1.8}
+.forge .step{border:1px solid rgba(255,255,255,.15);background:#ffffff08;color:#dce5f0}
+.forge .step b{color:var(--amber)}
+.nientra{
+  background:linear-gradient(120deg,#253c22,#17251e 65%,#243c1f);
+  border:1px solid rgba(198,255,77,.28);border-radius:22px;padding:clamp(28px,5vw,52px);
+}
+.nientra::after{background:radial-gradient(circle,#c6ff4d 0%,#8dbb35 42%,transparent 70%);opacity:.12;filter:blur(8px)}
+.nientra h3{color:#f4f8ed;letter-spacing:-1.2px}
+.nientra p{color:#c1d0b6;line-height:1.8}
+.nientra .btn{background:var(--amber);color:#10150b;border-color:var(--amber)}
+.nientra .btn:hover{background:#e0ff9b;color:#10150b;border-color:#e0ff9b}
+.contact .big{color:#f4f7fb;letter-spacing:-1.5px}
+footer{color:#718096;padding-bottom:180px}
+footer a{color:var(--amber)}
+#bubble{background:#121b2a;color:#eef4fc;border:1px solid #ffffff2b;box-shadow:0 15px 45px #0008}
+#bubble b{color:var(--amber)}
+#mascotBtn{background:#111a28;color:#f3f6fb;border:1px solid #ffffff30;box-shadow:0 12px 35px #0008}
+#mascotBtn img{background:#26354a}
+#mascotBtn .mt i{color:#91a0b5}
+#mascotBtn .pulse{background:var(--amber);box-shadow:0 0 0 0 #c6ff4d66}
+#chatPanel{background:#101827;color:#edf2f7;border:1px solid #ffffff30;box-shadow:0 25px 80px #000a}
+#chatPanel .chead{background:#172338;border-bottom:1px solid #ffffff18}
+#chatPanel .chead img{background:#26354a}
+#chatPanel .chead i{color:#a4b2c6}
+#chatMsgs,#chatChips{background:#0c1320}
+.msg.rex{background:#172338;color:#e6edf7;border:1px solid #ffffff18}
+.msg.me{background:#c6ff4d;color:#10150b}
+.msg a{color:var(--amber)}
+.msg.me a{color:#36500b}
+#chatChips button{background:#152033;color:#dce5f0;border:1px solid #ffffff24}
+#chatChips button:hover{background:#c6ff4d;color:#10150b;border-color:#c6ff4d}
+#chatForm{background:#101827;border-top:1px solid #ffffff18}
+#chatInput{background:#0b1220;color:#f3f6fb;border:1px solid #ffffff26}
+#chatInput:focus{border-color:var(--amber)}
+#chatForm button{background:var(--amber);color:#10150b}
+#questTrack{background:linear-gradient(180deg,rgba(8,11,18,.45),rgba(8,11,18,.98) 10px)}
+#questTrack .road{border-color:#ffffff38}
+#trackDots .tdot{background:#111a28;border:2px solid #66758a}
+#trackDots .tdot.got{background:var(--amber);border-color:#e6ffb5;color:#10150b}
+#runner{filter:drop-shadow(0 4px 8px #000b)}
+#starHud{background:rgba(17,26,40,.9);color:#edf2f7;border:1px solid #ffffff30;box-shadow:0 10px 30px #0008}
+#starHud span{color:#91a0b5}
+@media(max-width:640px){
+  header{padding:10px 12px}
+  .logo{font-size:13px;letter-spacing:1px}
+  .logo small{font-size:8px;letter-spacing:2px}
+  nav.mainnav{gap:9px}
+  nav.mainnav a{font-size:10px}
+  nav.mainnav a:nth-child(3),nav.mainnav a:nth-child(4){display:none}
+  nav.mainnav a.cta{padding:8px 11px}
+  .hero{min-height:90svh;align-items:flex-start;text-align:left;padding:126px 22px 62px}
+  .hero h1{font-size:clamp(55px,15vw,88px);letter-spacing:-.07em}
+  .hero .ctaRow{justify-content:flex-start}
+  .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,360px)}
+  .stat{min-width:0}
+  section{padding:82px 16px 60px}
+  .world{padding:22px 17px;border-radius:17px}
+  .world .whead{gap:10px}
+  .world .dot{width:40px;height:40px}
+  .world .stamp{font-size:10px;top:12px;right:10px}
+  #mapCanvas{border-radius:15px}
+  .nientra,.forge{border-radius:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
 </style>
 </head>
 <body>
