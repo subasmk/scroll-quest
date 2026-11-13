@@ -740,6 +740,29 @@ footer a{color:var(--amber)}
   .world,.proof,.btn{transition:none!important}
 }
 
+/* =========================================================
+   ADDITIVE LAYER — Subash's pick B (added by Muse on top of
+   his editorial redesign; his rules above are untouched):
+   dot-grid paper + press-effect buttons (is-a.dev style).
+========================================================= */
+body{
+  background-image:radial-gradient(rgba(32,31,28,.13) 1.1px, transparent 1.35px);
+  background-size:22px 22px;
+}
+.hero{
+  background-image:radial-gradient(rgba(32,31,28,.13) 1.1px, transparent 1.35px);
+  background-size:22px 22px;
+}
+.btn{box-shadow:5px 5px 0 rgba(32,31,28,.9)}
+.btn.solid:hover,.btn.ghost:hover{transform:translate(3px,3px);box-shadow:1px 1px 0 rgba(32,31,28,.9)}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 rgba(32,31,28,.9)}
+nav.mainnav a.cta{box-shadow:4px 4px 0 rgba(32,31,28,.85)}
+nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(32,31,28,.85)}
+#chatChips button{box-shadow:3px 3px 0 rgba(32,31,28,.85);transition:transform .13s ease,box-shadow .13s ease,background .13s ease}
+#chatChips button:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(32,31,28,.85)}
+#mascotBtn{box-shadow:5px 5px 0 rgba(32,31,28,.85)}
+#mascotBtn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(32,31,28,.85)}
+
 </style>
 </head>
 <body>
