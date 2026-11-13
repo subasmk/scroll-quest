@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subash MK — One Mind. Nine Domains. | Polymath Builder, Coimbatore</title>
+<meta name="description" content="Subash Mk is a B.Tech AI & Data Science student and founder of Nientra who builds across nine domains: AI agents, full-stack, apps, games, cybersecurity, cloud, DevOps, Web3 and reverse engineering.">
+<meta property="og:title" content="Subash MK — One Mind. Nine Domains.">
+<meta property="og:description" content="Polymath builder from Coimbatore. Explore my nine worlds — guided by Rex, my AI mascot.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --ink:#14161c; --paper:#fff9ef; --card:#ffffff;
+  --ai:#6d5cff; --fullstack:#0284c7; --app:#db2777; --game:#dc2626;
+  --cyber:#059669; --cloud:#0891b2; --devops:#ea580c; --web3:#9333ea; --reverse:#475569;
+  --amber:#ffb020; --mut:#5b6472;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+::selection{background:var(--amber);color:#14161c}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---------- top bar / HUD ---------- */
+#progressBar{position:fixed;top:0;left:0;height:5px;width:0%;background:linear-gradient(90deg,var(--ai),var(--game),var(--amber));z-index:200;transition:width .1s linear}
+header{position:fixed;top:5px;left:0;right:0;z-index:150;display:flex;justify-content:space-between;align-items:center;
+  padding:10px 18px;background:rgba(255,249,239,.85);backdrop-filter:blur(8px);border-bottom:2px solid #14161c10}
+.logo{font-weight:900;letter-spacing:1.5px;font-size:17px;text-decoration:none}
+.logo span{color:#e03131}
+.logo small{display:block;font-size:9.5px;letter-spacing:3.5px;color:var(--mut);font-weight:700}
+nav.mainnav{display:flex;gap:16px;align-items:center}
+nav.mainnav a{text-decoration:none;font-weight:700;font-size:13.5px;letter-spacing:.4px}
+nav.mainnav a:hover{color:#e03131}
+nav.mainnav a.cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px}
+nav.mainnav a.cta:hover{background:#e03131;color:#fff}
+@media(max-width:640px){ nav.mainnav a:not(.cta){display:none} }
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  padding:120px 18px 70px;position:relative;
+  background:
+   radial-gradient(600px 300px at 15% 20%, #6d5cff18, transparent 60%),
+   radial-gradient(700px 340px at 85% 25%, #dc262616, transparent 60%),
+   radial-gradient(800px 400px at 50% 95%, #ffb02022, transparent 60%), var(--paper)}
+.hero .kick{letter-spacing:4px;font-weight:800;font-size:12px;color:#e03131}
+.hero h1{font-size:clamp(52px,11vw,118px);font-weight:900;line-height:.98;letter-spacing:-1px;margin:10px 0 2px}
+.hero h1 .sun{color:#e03131}
+.hero .rotwrap{font-size:clamp(21px,4.2vw,40px);font-weight:800;margin-top:10px;min-height:1.5em}
+.hero .rotwrap #rotWord{display:inline-block;color:#e03131;transition:transform .35s ease,opacity .35s ease}
+.hero p.sub{max-width:640px;color:var(--mut);font-size:clamp(14.5px,2vw,17.5px);line-height:1.6;margin-top:12px}
+.hero .ctaRow{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.btn{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;padding:14px 26px;border-radius:999px;border:2.5px solid var(--ink);transition:transform .15s ease,background .15s ease}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.solid:hover{background:#e03131;border-color:#e03131;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--amber);transform:translateY(-2px)}
+.stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.stat{background:var(--card);border:2px solid #14161c14;border-radius:14px;padding:10px 16px;box-shadow:0 4px 0 #14161c10}
+.stat b{font-size:19px}
+.stat i{display:block;font-style:normal;font-size:11px;letter-spacing:1.6px;color:var(--mut);font-weight:700}
+.hero .scrollHint{margin-top:44px;font-size:12px;letter-spacing:3px;color:var(--mut);font-weight:700;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;padding:11px 0;transform:rotate(-1.1deg) scale(1.02)}
+.marquee .track{display:inline-block;animation:mq 26s linear infinite;font-weight:900;letter-spacing:2.5px;font-size:14.5px}
+.marquee .track span{margin:0 16px}
+.marquee .track b{color:var(--amber)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- sections shared ---------- */
+section{padding:84px 18px 70px;max-width:1080px;margin:0 auto}
+.secHead{text-align:center;margin-bottom:30px}
+.secHead .kick{letter-spacing:4px;font-weight:800;font-size:11.5px;color:#e03131}
+.secHead h2{font-size:clamp(30px,5.4vw,48px);font-weight:900;margin-top:6px}
+.secHead p{color:var(--mut);max-width:620px;margin:10px auto 0;line-height:1.6;font-size:15.5px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- knowledge map ---------- */
+#mapCanvas{width:100%;height:auto;display:block;background:
+  radial-gradient(500px 260px at 50% 40%, #14161c08, transparent), #fffdf7;
+  border:2.5px solid #14161c;border-radius:22px;box-shadow:0 10px 0 #14161c12}
+.mapHint{text-align:center;color:var(--mut);font-size:13px;margin-top:10px;font-weight:600}
+
+/* ---------- worlds ---------- */
+.world{position:relative;border:2.5px solid #14161c;border-radius:24px;padding:30px 26px 26px;margin-bottom:26px;overflow:hidden;background:var(--card)}
+.world::before{content:attr(data-num);position:absolute;right:6px;top:-38px;font-size:150px;font-weight:900;opacity:.07;pointer-events:none}
+.world .whead{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.world .dot{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:23px;flex:none;border:2px solid #14161c22}
+.world h3{font-size:clamp(22px,3.4vw,30px);font-weight:900}
+.badge{font-size:11px;font-weight:900;letter-spacing:1.4px;padding:5px 11px;border-radius:999px;border:2px solid}
+.badge.shipped{color:#067647;border-color:#067647;background:#06764712}
+.badge.building{color:#b54708;border-color:#b54708;background:#b5470812}
+.badge.exploring{color:#175cd3;border-color:#175cd3;background:#175cd312}
+.world .tag{color:var(--mut);margin:12px 0 16px;line-height:1.6;font-size:15px;max-width:760px}
+.proofs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.proof{border:2px solid #14161c16;border-radius:16px;padding:14px 15px;background:#fffdf7;transition:transform .15s ease,border-color .15s ease}
+.proof:hover{transform:translateY(-3px);border-color:#14161c}
+.proof b{font-size:15px}
+.proof p{color:var(--mut);font-size:13.5px;line-height:1.5;margin-top:4px}
+.proof a{display:inline-block;margin-top:8px;font-weight:800;font-size:13px;text-decoration:none;border-bottom:2.5px solid var(--amber)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:12px;font-weight:700;background:#14161c0d;border:1.5px solid #14161c1c;padding:4px 10px;border-radius:999px}
+
+/* ---------- forging strip ---------- */
+.forge{background:var(--ink);color:#fff;border-radius:24px;padding:32px 26px;text-align:center}
+.forge h3{font-size:clamp(21px,3.6vw,29px);font-weight:900}
+.forge h3 b{color:var(--amber)}
+.forge p{color:#c7cedb;line-height:1.65;max-width:680px;margin:10px auto 0;font-size:15px}
+.forge .steps{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.forge .step{border:1.5px solid #ffffff33;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700}
+.forge .step b{color:var(--amber)}
+
+/* ---------- nientra / contact ---------- */
+.nientra{background:#e03131;color:#fff;border-radius:24px;padding:36px 26px;text-align:center;position:relative;overflow:hidden}
+.nientra::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:#ffb020;opacity:.9;right:-110px;top:-160px}
+.nientra h3{font-size:clamp(26px,5vw,40px);font-weight:900;position:relative;z-index:1}
+.nientra p{position:relative;z-index:1;color:#ffe3e3;max-width:600px;margin:10px auto 0;line-height:1.6}
+.nientra .btn{position:relative;z-index:1;margin-top:20px;background:#fff;color:#e03131;border-color:#fff}
+.nientra .btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.contact{text-align:center}
+.contact .big{font-size:clamp(26px,5vw,42px);font-weight:900;line-height:1.2}
+.contact .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:26px 16px 120px;line-height:1.7}
+footer a{font-weight:700}
+
+/* ---------- mascot + assistant ---------- */
+#mascotWrap{position:fixed;left:14px;bottom:12px;z-index:300;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+#bubble{max-width:250px;background:#fff;border:2.5px solid var(--ink);border-radius:16px;border-bottom-left-radius:4px;
+  padding:10px 13px;font-size:13.5px;line-height:1.45;font-weight:600;box-shadow:0 8px 24px rgba(20,22,28,.18);
+  opacity:0;transform:translateY(8px) scale(.96);transition:all .3s ease;pointer-events:none}
+#bubble.show{opacity:1;transform:none}
+#bubble b{color:#e03131}
+#mascotBtn{display:flex;align-items:center;gap:9px;background:#fff;border:2.5px solid var(--ink);border-radius:999px;
+  padding:5px 14px 5px 5px;cursor:pointer;box-shadow:0 8px 24px rgba(20,22,28,.2);transition:transform .15s ease;font-family:inherit}
+#mascotBtn:hover{transform:translateY(-2px)}
+#mascotBtn img{width:52px;height:52px;object-fit:contain;border-radius:50%;background:#ffe9c9}
+#mascotBtn .mt{text-align:left;line-height:1.15}
+#mascotBtn .mt b{font-size:14.5px;display:block}
+#mascotBtn .mt i{font-style:normal;font-size:11px;color:var(--mut);font-weight:700;letter-spacing:.4px}
+#mascotBtn .pulse{width:9px;height:9px;border-radius:50%;background:#12b76a;box-shadow:0 0 0 0 #12b76a66;animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* chat panel */
+#chatPanel{position:fixed;left:14px;bottom:92px;z-index:310;width:min(360px,calc(100vw - 28px));height:min(520px,calc(100svh - 120px));
+  background:#fff;border:2.5px solid var(--ink);border-radius:20px;box-shadow:0 24px 60px rgba(20,22,28,.3);
+  display:none;flex-direction:column;overflow:hidden}
+#chatPanel.open{display:flex}
+#chatPanel .chead{background:var(--ink);color:#fff;padding:12px 15px;display:flex;align-items:center;gap:10px}
+#chatPanel .chead img{width:38px;height:38px;border-radius:50%;background:#ffe9c9;object-fit:contain}
+#chatPanel .chead b{font-size:15px;display:block}
+#chatPanel .chead i{font-style:normal;font-size:11.5px;color:#aebdd2}
+#chatPanel .chead button{margin-left:auto;background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1}
+#chatMsgs{flex:1;overflow-y:auto;padding:13px;display:flex;flex-direction:column;gap:9px;background:#fff9ef}
+.msg{max-width:86%;padding:9px 12px;border-radius:14px;font-size:13.8px;line-height:1.5;animation:msgin .25s ease}
+@keyframes msgin{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.msg.rex{background:#fff;border:2px solid #14161c1e;border-bottom-left-radius:4px;align-self:flex-start}
+.msg.me{background:var(--ink);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.msg a{font-weight:800;color:#e03131}
+.msg.me a{color:var(--amber)}
+#chatChips{display:flex;gap:7px;flex-wrap:wrap;padding:9px 12px 3px;background:#fff9ef}
+#chatChips button{font-family:inherit;font-size:12.3px;font-weight:700;border:2px solid var(--ink);background:#fff;border-radius:999px;padding:6px 11px;cursor:pointer}
+#chatChips button:hover{background:var(--amber)}
+#chatForm{display:flex;gap:8px;padding:10px 12px;border-top:2px solid #14161c12;background:#fff}
+#chatInput{flex:1;font-family:inherit;font-size:14px;border:2px solid #14161c2a;border-radius:999px;padding:9px 14px;outline:none}
+#chatInput:focus{border-color:var(--ink)}
+#chatForm button{background:var(--ink);color:#fff;border:none;border-radius:999px;padding:9px 17px;font-weight:800;cursor:pointer;font-family:inherit}
+.typing{display:inline-flex;gap:4px;padding:12px 14px}
+.typing span{width:7px;height:7px;border-radius:50%;background:#98a2b3;animation:tp 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+@media(max-width:640px){ #bubble{max-width:200px;font-size:12.5px} #mascotBtn img{width:44px;height:44px} }
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+
+<header>
+  <a class="logo" href="#top">SUBASH <span>MK</span><small>POLYMATH BUILDER</small></a>
+  <nav class="mainnav">
+    <a href="#map">9 Worlds</a>
+    <a href="#worlds">Explore</a>
+    <a href="#nientra">Nientra</a>
+    <a href="https://subasmk.github.io/3d-portfolio/" target="_blank" rel="noopener">Drive my 3D world</a>
+    <a class="cta" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="top">
+  <div class="kick">COIMBATORE · INDIA · BUILDING IN PUBLIC</div>
+  <h1>SUBASH <span class="sun">MK</span></h1>
+  <div class="rotwrap">One mind. <span id="rotWord">Nine domains.</span></div>
+  <p class="sub">I'm a B.Tech <b>AI &amp; Data Science</b> student at VSB College of Engineering and the founder of
+  <b>Nientra</b>. I don't specialise in one thing — I build across <b>nine domains</b> and connect them.
+  Scroll through my worlds — and if you get lost, <b>Rex</b>, my mascot, is right there in the corner to help.</p>
+  <div class="ctaRow">
+    <a class="btn solid" href="#map">Explore my 9 worlds</a>
+    <a class="btn ghost" href="#contact">Work with me</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>9</b><i>DOMAINS</i></div>
+    <div class="stat"><b>40+</b><i>PUBLIC REPOS</i></div>
+    <div class="stat"><b>3</b><i>LIVE PRODUCTS</i></div>
+    <div class="stat"><b>19</b><i>YEARS OLD</i></div>
+  </div>
+  <div class="scrollHint">SCROLL — THE QUEST BEGINS &#9660;</div>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mqTrack"></div></div>
+
+<!-- ================= KNOWLEDGE MAP ================= -->
+<section id="map">
+  <div class="secHead reveal">
+    <div class="kick">THE KNOWLEDGE MAP</div>
+    <h2>Nine worlds. One brain.</h2>
+    <p>A polymath isn't nine separate people — the power is in the <b>connections</b>. AI feeds my games,
+    security sharpens my apps, cloud ships them all. Tap a world to jump into it.</p>
+  </div>
+  <canvas id="mapCanvas" width="1040" height="560" class="reveal"></canvas>
+  <p class="mapHint">Tap / click a node — Rex will take you there.</p>
+</section>
+
+<!-- ================= WORLDS ================= -->
+<section id="worlds" style="padding-top:20px">
+  <div class="secHead reveal">
+    <div class="kick">THE QUEST</div>
+    <h2>World by world</h2>
+    <p>Every world shows its status honestly — <b>Shipped</b> means you can try it, <b>Building</b> means proof is
+    in progress, <b>Exploring</b> means I'm learning it in public right now.</p>
+  </div>
+  <div id="worldList"></div>
+
+  <div class="forge reveal">
+    <h3>THE SKILLFORGE — how I learn every world</h3>
+    <p>Nine domains, one method. Nothing counts as "known" in my tracker until it passes all five proof gates —
+    the same discipline behind my Polymath Tracker &amp; SkillForge plan.</p>
+    <div class="steps">
+      <span class="step"><b>1</b> BUILD it</span>
+      <span class="step"><b>2</b> EXPLAIN it</span>
+      <span class="step"><b>3</b> TEST it</span>
+      <span class="step"><b>4</b> DEBUG it</span>
+      <span class="step"><b>5</b> MODIFY it</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NIENTRA ================= -->
+<section id="nientra" style="padding-top:10px">
+  <div class="nientra reveal">
+    <h3>NIENTRA — WORK LESS. WIN MORE.</h3>
+    <p>My startup. I build websites, AI chat assistants and automations for local businesses —
+    starting with a &#8377;999 pilot so you see it work before you pay big.</p>
+    <a class="btn" href="https://nientra.xyz" target="_blank" rel="noopener">Visit nientra.xyz</a>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact" style="padding-top:10px">
+  <div class="secHead reveal">
+    <div class="kick">FINAL DOOR</div>
+    <h2>Quest complete. Now let's talk.</h2>
+  </div>
+  <p class="big reveal">Open to internships, freelance<br>and wild collaborations.</p>
+  <div class="row reveal">
+    <a class="btn solid" href="https://wa.me/918778149499?text=Hi%20Subash%2C%20I%20explored%20your%209%20worlds!" target="_blank" rel="noopener">WhatsApp me</a>
+    <a class="btn ghost" href="mailto:mksubash2809@gmail.com">Email</a>
+    <a class="btn ghost" href="https://github.com/subasmk" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  Built by Subash Mk — one static HTML file. No frameworks, no build step, loads instantly.<br>
+  Mascot: <b>Rex</b> (from Shiba Desktop) · 3D version: <a href="https://subasmk.github.io/3d-portfolio/" target="_blank" rel="noopener">drive my portfolio</a> ·
+  Startup: <a href="https://nientra.xyz" target="_blank" rel="noopener">Nientra</a>
+</footer>
+
+<!-- ================= MASCOT / ASSISTANT ================= -->
+<div id="mascotWrap">
+  <div id="bubble"></div>
+  <button id="mascotBtn" aria-label="Chat with Rex, the assistant">
+    <img src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="Rex the Shiba mascot">
+    <span class="mt"><b>Rex</b><i>YOUR GUIDE — ASK ME</i></span>
+    <span class="pulse"></span>
+  </button>
+</div>
+
+<div id="chatPanel" role="dialog" aria-label="Chat with Rex">
+  <div class="chead">
+    <img src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="Rex">
+    <div><b>Rex — Subash's assistant</b><i>I know all 9 worlds. Ask me anything.</i></div>
+    <button id="chatClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div id="chatMsgs"></div>
+  <div id="chatChips"></div>
+  <form id="chatForm">
+    <input id="chatInput" type="text" placeholder="Ask about projects, skills, Nientra..." autocomplete="off">
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+/* ================================================= WORLDS DATA */
+const WORLDS = [
+ { id:'ai', num:'01', name:'AI Engineering & Agents', icon:'\u{1F916}', color:'var(--ai)', hex:'#6d5cff', status:'shipped', statusTxt:'SHIPPED',
+   tag:'My home world. I build AI that lives on your desk and talks back — local brains, voice, wake words and agents that actually do things.',
+   proofs:[
+     {t:'Shiba Desktop (Rex)', d:'AI desktop pet with continuous voice, wake word, a local offline brain (Ollama) and Tamil voice. Shipped as real Windows builds.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
+     {t:'MockMentor', d:'AI mock-interview coach that practices you from your own resume and reviews your answers.', l:'https://github.com/subasmk/MOCK-MENTOR', lt:'GitHub'}],
+   chips:['Python','Ollama / LLMs','Whisper ASR','TTS & voice cloning','Agents','Prompt engineering'] },
+ { id:'fullstack', num:'02', name:'Full-Stack Development', icon:'\u{1F4BB}', color:'var(--fullstack)', hex:'#0284c7', status:'shipped', statusTxt:'SHIPPED',
+   tag:'From database schema to the pixel. I design it, build it, ship it — this very page is one static HTML file, written by hand.',
+   proofs:[
+     {t:'Nientra — client websites', d:'A services business built end-to-end: bold poster site, prices, and a WhatsApp pipeline that turns visitors into enquiries.', l:'https://nientra.xyz', lt:'Live site'},
+     {t:'This portfolio', d:'One static HTML file. No framework, no build step — and a mascot assistant with a built-in brain, written in vanilla JavaScript.', l:'https://github.com/subasmk', lt:'My GitHub'}],
+   chips:['JavaScript','React','Node.js','MySQL','HTML/CSS','REST APIs'] },
+ { id:'game', num:'03', name:'Game Development', icon:'\u{1F3AE}', color:'var(--game)', hex:'#dc2626', status:'shipped', statusTxt:'SHIPPED',
+   tag:'Games are where my worlds collide — AI, 3D and computer vision in one arena. My gesture games are playable right now, online.',
+   proofs:[
+     {t:'Nuketown — Gesture Arena', d:'A 3D multiplayer arena you control with hand gestures on a webcam: aim with your hand, pinch to shoot. Live on the web.', l:'https://nuketown-gesture.onrender.com', lt:'Play it live'},
+     {t:'Valorant Gesture Control', d:'Play a tactical FPS with hand gestures instead of a mouse — MediaPipe hand tracking driving real input.', l:'https://github.com/subasmk/valorant-gesture-control', lt:'GitHub'}],
+   chips:['Three.js','MediaPipe','Socket.IO','Game physics','Multiplayer','Webcam CV'] },
+ { id:'app', num:'04', name:'App Development', icon:'\u{1F4F1}', color:'var(--app)', hex:'#db2777', status:'building', statusTxt:'BUILDING',
+   tag:'Desktop and mobile apps that feel alive — characters, voice and personality included, not just screens and forms.',
+   proofs:[
+     {t:'Shiba Desktop app', d:'A full Electron app: drag-out desktop pet, launcher, focus timer, routines and a settings dashboard. Version 0.2.x, Windows builds released.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
+     {t:'Polymath Tracker', d:'My own nine-domain skill tracker with proof gates and progress sync — the plan behind this portfolio.', l:'https://github.com/subasmk/polymath-tracker', lt:'GitHub'}],
+   chips:['Electron','JavaScript','UI/UX','Mobile web apps','Local-first data'] },
+ { id:'cyber', num:'05', name:'Cybersecurity', icon:'\u{1F6E1}\u{FE0F}', color:'var(--cyber)', hex:'#059669', status:'building', statusTxt:'BUILDING',
+   tag:'Building the shield while I build everything else. My rule: if I ship it, I should know how it breaks.',
+   proofs:[
+     {t:'ScamRadar', d:'A scam-detection project — spotting fraudulent patterns before they spot you.', l:'https://github.com/subasmk/scamradar', lt:'GitHub'},
+     {t:'Secure-by-habit builds', d:'Server-side checks, no leaked answers, no trust in the client — lessons baked into my multiplayer game work.', l:'https://github.com/subasmk', lt:'My GitHub'}],
+   chips:['Threat thinking','Web security basics','Auth & sessions','OSINT awareness'] },
+ { id:'cloud', num:'06', name:'Cloud Computing', icon:'\u2601\u{FE0F}', color:'var(--cloud)', hex:'#0891b2', status:'building', statusTxt:'BUILDING',
+   tag:'My projects don\u2019t live on localhost. Games, sites and demos — deployed, kept alive and reachable from anywhere.',
+   proofs:[
+     {t:'Live deployments', d:'A multiplayer game server kept awake on Render, sites on Vercel and GitHub Pages — real hosting, real uptime problems, solved.', l:'https://nuketown-gesture.onrender.com', lt:'Live demo'},
+     {t:'Nientra on its own domain', d:'Custom-domain deployment with the repo as the single source of truth.', l:'https://nientra.xyz', lt:'Live site'}],
+   chips:['Render','Vercel','GitHub Pages','Domains & DNS','Keep-alive ops'] },
+ { id:'devops', num:'07', name:'DevOps', icon:'\u2699\u{FE0F}', color:'var(--devops)', hex:'#ea580c', status:'building', statusTxt:'BUILDING',
+   tag:'Pipelines that test while I sleep. My desktop app\u2019s Windows builds are verified by CI before anyone downloads them.',
+   proofs:[
+     {t:'Windows CI for Rex', d:'GitHub Actions smoke-tests every packaged Windows build — launch, voice turns, barge-in, clean stop — before release.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
+     {t:'Git discipline', d:'40+ repos, PAT-based automation, multi-agent workflows that commit without stepping on each other.', l:'https://github.com/subasmk', lt:'My GitHub'}],
+   chips:['GitHub Actions','CI smoke tests','Git & GitHub','Release workflows','Automation'] },
+ { id:'web3', num:'08', name:'Blockchain / Web3', icon:'\u26D3\u{FE0F}', color:'var(--web3)', hex:'#9333ea', status:'exploring', statusTxt:'EXPLORING',
+   tag:'Honest status: exploring. I\u2019m learning how decentralised systems actually work — blocks, hashes, consensus — before I claim any of it. Proof gate: not passed yet.',
+   proofs:[
+     {t:'SkillForge plan — Domain 8', d:'This world is in my nine-domain tracker with its own checklist and readiness tests. When I ship proof, it will appear here first.', l:'https://github.com/subasmk/polymath-tracker', lt:'See the plan'}],
+   chips:['Blockchain fundamentals','Hashing','Wallets & keys','Smart-contract basics (learning)'] },
+ { id:'reverse', num:'09', name:'Reverse Engineering', icon:'\u{1F50D}', color:'var(--reverse)', hex:'#475569', status:'exploring', statusTxt:'EXPLORING',
+   tag:'Honest status: exploring. Taking things apart to see how they think — binaries, protocols, other people\u2019s systems — is the deepest way to learn how to build my own.',
+   proofs:[
+     {t:'SkillForge plan — Domain 9', d:'In the tracker, with checklists and proof gates like every other world. Nothing faked, nothing claimed early.', l:'https://github.com/subasmk/polymath-tracker', lt:'See the plan'}],
+   chips:['Debugging deep-dives','Protocols & formats','Binary basics (learning)','Systems thinking'] },
+];
+
+/* ================================================= RENDER WORLDS */
+const list = document.getElementById('worldList');
+WORLDS.forEach(w=>{
+  const el = document.createElement('article');
+  el.className = 'world reveal'; el.id = 'world-' + w.id; el.dataset.num = w.num;
+  el.innerHTML =
+    '<div class="whead"><div class="dot" style="background:' + w.hex + '22">' + w.icon + '</div>' +
+    '<h3 style="color:' + w.hex + '">' + w.name + '</h3>' +
+    '<span class="badge ' + w.status + '">' + w.statusTxt + '</span></div>' +
+    '<p class="tag">' + w.tag + '</p>' +
+    '<div class="proofs">' + w.proofs.map(p =>
+      '<div class="proof"><b>' + p.t + '</b><p>' + p.d + '</p><a href="' + p.l + '" target="_blank" rel="noopener">' + p.lt + ' &#8599;</a></div>').join('') + '</div>' +
+    '<div class="chips">' + w.chips.map(c => '<span class="chip">' + c + '</span>').join('') + '</div>';
+  list.appendChild(el);
+});
+
+/* ================================================= MARQUEE */
+const words = ['AI AGENTS','FULL-STACK','GAMES','APPS','CYBERSECURITY','CLOUD','DEVOPS','WEB3','REVERSE ENGINEERING'];
+const seq = words.map(w => '<span>' + w + ' <b>&#10022;</b></span>').join('');
+document.getElementById('mqTrack').innerHTML = seq + seq;
+
+/* ================================================= ROTATING WORD */
+const rotEl = document.getElementById('rotWord');
+const rotWords = ['Nine domains.','AI agents.','Full-stack apps.','Playable games.','Secure systems.','Cloud ships.','One mind.'];
+let ri = 0;
+setInterval(()=>{
+  rotEl.style.opacity = '0'; rotEl.style.transform = 'translateY(10px)';
+  setTimeout(()=>{ ri = (ri+1) % rotWords.length; rotEl.textContent = rotWords[ri];
+    rotEl.style.opacity = '1'; rotEl.style.transform = 'none'; }, 360);
+}, 2400);
+
+/* ================================================= PROGRESS + REVEAL */
+const pbar = document.getElementById('progressBar');
+addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  pbar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive:true });
+const revealObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold:.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ================================================= KNOWLEDGE MAP (canvas) */
+const cv = document.getElementById('mapCanvas'), ctx = cv.getContext('2d');
+const POS = { ai:[.50,.16], fullstack:[.22,.34], game:[.78,.34], app:[.13,.62], cyber:[.36,.55],
+              cloud:[.64,.55], devops:[.87,.62], web3:[.36,.86], reverse:[.64,.86] };
+const LINKS = [['ai','fullstack'],['ai','game'],['ai','app'],['fullstack','app'],['fullstack','cloud'],
+  ['fullstack','cyber'],['game','app'],['game','cloud'],['cyber','reverse'],['cyber','cloud'],
+  ['cloud','devops'],['cloud','web3'],['web3','reverse'],['devops','game'],['ai','cyber']];
+let hoverId = null, t0 = performance.now();
+function nodeXY(id){ const W = cv.width, H = cv.height; const p = POS[id]; return [p[0]*W, p[1]*H]; }
+function drawMap(now){
+  const W = cv.width, H = cv.height; ctx.clearRect(0,0,W,H);
+  const t = (now - t0) / 1000;
+  ctx.lineWidth = 2;
+  LINKS.forEach(([a,b], i)=>{
+    const [x1,y1] = nodeXY(a), [x2,y2] = nodeXY(b);
+    const active = hoverId && (a === hoverId || b === hoverId);
+    ctx.strokeStyle = active ? '#e03131' : 'rgba(20,22,28,0.16)';
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    const f = ((t * .25 + i * .17) % 1);
+    ctx.fillStyle = active ? '#e03131' : 'rgba(20,22,28,0.35)';
+    ctx.beginPath(); ctx.arc(x1 + (x2-x1)*f, y1 + (y2-y1)*f, active ? 4 : 2.6, 0, 7); ctx.fill();
+  });
+  WORLDS.forEach((w, i)=>{
+    const [x, y0] = nodeXY(w.id);
+    const y = y0 + Math.sin(t * 1.2 + i * 1.7) * 5;
+    const r = (hoverId === w.id) ? 34 : 27;
+    ctx.beginPath(); ctx.arc(x, y, r + 9, 0, 7); ctx.fillStyle = w.hex + '22'; ctx.fill();
+    ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = '#ffffff'; ctx.fill();
+    ctx.lineWidth = 3; ctx.strokeStyle = w.hex; ctx.stroke();
+    ctx.font = '24px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(w.icon, x, y + 1);
+    ctx.font = '700 12.5px Segoe UI, Arial'; ctx.fillStyle = '#14161c';
+    const label = w.name.replace(' Engineering & Agents','').replace(' Development','').replace(' Computing','').replace(' / Web3','').replace('Reverse ','Rev. ');
+    ctx.fillText(label.toUpperCase(), x, y + r + 16);
+    w._mx = x; w._my = y; w._mr = r + 10;
+  });
+  requestAnimationFrame(drawMap);
+}
+requestAnimationFrame(drawMap);
+function mapPick(e){
+  const rect = cv.getBoundingClientRect();
+  const sx = cv.width / rect.width, sy = cv.height / rect.height;
+  const cx = (e.clientX - rect.left) * sx, cy = (e.clientY - rect.top) * sy;
+  let best = null, bd = 1e9;
+  WORLDS.forEach(w => { const d = Math.hypot(cx - w._mx, cy - w._my); if (d < bd) { bd = d; best = w; } });
+  return (best && bd < best._mr + 16) ? best : null;
+}
+cv.addEventListener('pointermove', e => { const w = mapPick(e); hoverId = w ? w.id : null; cv.style.cursor = w ? 'pointer' : 'default'; });
+cv.addEventListener('pointerleave', ()=> hoverId = null);
+cv.addEventListener('click', e => { const w = mapPick(e); if (w) goWorld(w); });
+
+/* ================================================= MASCOT */
+const GIF = 'https://raw.githubusercontent.com/subasmk/shiba-desktop/main/';
+const mascotImg = document.querySelector('#mascotBtn img');
+const bubble = document.getElementById('bubble');
+let bubbleTimer = null;
+function say(html, ms){
+  bubble.innerHTML = html; bubble.classList.add('show');
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(()=> bubble.classList.remove('show'), ms || 5200);
+}
+function setMascot(gif){ if (!mascotImg.src.endsWith(gif)) mascotImg.src = GIF + gif; }
+function goWorld(w){
+  document.getElementById('world-' + w.id).scrollIntoView({ behavior:'smooth', block:'center' });
+  setMascot(w.id === 'ai' || w.id === 'cyber' ? 'hacking.gif' : w.id === 'game' ? 'celebrate_jump.gif' : 'gesture_point.gif');
+  say('<b>' + w.name + '</b> — ' + (w.status === 'shipped' ? 'this one is LIVE. Go see the proof!' :
+      w.status === 'building' ? 'proof is cooking here. Watch this world!' : 'Subash is exploring this one in public. Honest badge, no fake claims!'), 5200);
+}
+setTimeout(()=> say('Vanakkam! I\u2019m <b>Rex</b>, Subash\u2019s mascot. I\u2019ll guide you through his <b>9 worlds</b> — or tap me and ask me anything!'), 1200);
+
+const WORLD_LINES = {
+  ai:'World 01 — where I was born! Shiba Desktop, that\u2019s my house.',
+  fullstack:'World 02 — the sites and systems Subash ships for real clients.',
+  game:'World 03 — playable proof! The gesture arena is LIVE, go try it.',
+  app:'World 04 — apps with a face. (The face is mine.)',
+  cyber:'World 05 — ScamRadar lives here. Subash builds shields too.',
+  cloud:'World 06 — everything here runs on real servers, not localhost dreams.',
+  devops:'World 07 — robots test Subash\u2019s builds while he sleeps. Teamwork.',
+  web3:'World 08 — exploring, honestly. No fake guru stuff, promise.',
+  reverse:'World 09 — taking things apart to learn how they think.'
+};
+const worldObs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){
+    const id = e.target.id.replace('world-','');
+    if (WORLD_LINES[id]){ setMascot(id === 'ai' || id === 'cyber' || id === 'devops' ? 'hacking.gif' : 'idle_breathe.gif'); say(WORLD_LINES[id], 4200); }
+  }
+}), { threshold:.45 });
+document.querySelectorAll('.world').forEach(el => worldObs.observe(el));
+
+/* ================================================= REX BRAIN (chat) */
+const WA = 'https://wa.me/918778149499?text=Hi%20Subash%2C%20I%20found%20you%20through%20your%20portfolio!';
+const BRAIN = [
+ { k:['hello','hi','hey','vanakkam','yo'], a:'Vanakkam! I\u2019m <b>Rex</b>, Subash\u2019s mascot and full-time guide. Ask me about his <b>projects</b>, <b>9 domains</b>, <b>internship</b> plans, or <b>Nientra</b> — or tap a chip below.' },
+ { k:['who','subash','about him','bio'], a:'<b>Subash Mk</b>, 19 — B.Tech <b>AI &amp; Data Science</b> student at VSB College of Engineering Technical Campus, Coimbatore, and founder of <b>Nientra</b>. He learns by building in public: 40+ public repos, shipped products, and nine domains on one map.' },
+ { k:['polymath','domain','worlds','nine','wide','many fields'], a:'The polymath map! Subash builds across <b>9 domains</b>: AI agents, full-stack, games, apps, cybersecurity, cloud, DevOps, Web3 and reverse engineering. Shipped: AI, full-stack, games. Building: apps, cyber, cloud, DevOps. Exploring (honestly): Web3, reverse engineering. Scroll to the <a href="#map">knowledge map</a> and tap a world.' },
+ { k:['project','built','work','portfolio','ship'], a:'Proof, not promises. Highlights: <b>Shiba Desktop</b> (AI pet — real Windows builds), <b>Nuketown gesture arena</b> (playable online), <b>Nientra</b> client sites, and this portfolio itself. Full list lives in the <a href="#worlds">nine worlds</a> below.' },
+ { k:['shiba','rex','desktop pet','mascot'], a:'That\u2019s my home! <b>Shiba Desktop</b> is Subash\u2019s AI desktop-pet app — I live on his Windows desktop with voice, a wake word and a local brain. In the current builds they call me <b>Rex</b>. <a href="https://github.com/subasmk/shiba-desktop" target="_blank" rel="noopener">See it on GitHub</a>.' },
+ { k:['game','gesture','nuketown','valorant','play'], a:'Games are Subash\u2019s playground: <b>Nuketown</b> is a 3D arena controlled by hand gestures on a webcam — <a href="https://nuketown-gesture.onrender.com" target="_blank" rel="noopener">play it live</a>. He also made Valorant playable with gestures instead of a mouse.' },
+ { k:['skill','tech','stack','language','know'], a:'Core stack: <b>Python, Java, JavaScript, React, MySQL, Three.js, Electron, Git</b> — plus AI tooling (Ollama, Whisper, MediaPipe). But the real skill is the SkillForge method: build it, explain it, test it, debug it, modify it — for every domain.' },
+ { k:['intern','job','hire','oppor','placement','work with'], a:'Yes — Subash is looking for an <b>in-person internship in Coimbatore</b> (his college requires physical, department-approved internships). Java / full-stack / AI roles fit best. Fastest route: <a href="' + WA + '" target="_blank" rel="noopener">WhatsApp him</a> or email mksubash2809@gmail.com.' },
+ { k:['nientra','business','price','cost','website','service','client'], a:'<b>Nientra</b> is Subash\u2019s startup — "Work less. Win more." Business websites from <b>\u20B94,999</b>, AI chat assistants from <b>\u20B97,999</b>, automation from <b>\u20B92,999</b>, and a <b>\u20B9999 pilot</b> to start small. Details at <a href="https://nientra.xyz" target="_blank" rel="noopener">nientra.xyz</a>.' },
+ { k:['contact','reach','phone','whatsapp','email','number'], a:'Fastest: <a href="' + WA + '" target="_blank" rel="noopener">WhatsApp +91 87781 49499</a> — he replies fast. Email: mksubash2809@gmail.com. Code: <a href="https://github.com/subasmk" target="_blank" rel="noopener">github.com/subasmk</a>.' },
+ { k:['college','study','student','degree','vsb','education'], a:'Subash is a 2nd-year <b>B.Tech AI &amp; Data Science</b> student at <b>VSB College of Engineering Technical Campus</b>, Coimbatore. He studies by building — his exam notes, trackers and this site are all part of the same system.' },
+ { k:['cyber','security','scam'], a:'Cybersecurity is a "building" world: <b>ScamRadar</b> (scam detection) is his proof so far, plus secure-by-habit practices in his shipped work. See <a href="#world-cyber">World 05</a>.' },
+ { k:['web3','blockchain','crypto','reverse'], a:'Honest answer: those two worlds (Web3, reverse engineering) are marked <b>Exploring</b> — Subash is learning them in public and won\u2019t claim proof he doesn\u2019t have. That honesty is kind of his brand.' },
+ { k:['3d','drive','car'], a:'Oh, you want the keys? Subash also built a <b>drivable 3D version</b> of this portfolio — a whole world with a car. <a href="https://subasmk.github.io/3d-portfolio/" target="_blank" rel="noopener">Drive it here</a>. This page stays static and instant; that one is the playground.' },
+ { k:['age','old','where','coimbatore','location'], a:'Subash is 19 and based in <b>Coimbatore, India</b> — building for local businesses first, internet second.' },
+ { k:['thank','thanks','super','nice','cool','great'], a:'Anytime! That\u2019s literally my job. Want the tour? Tap a world on the <a href="#map">map</a> — or ask me anything else.' },
+];
+const FALLBACK = 'Hmm, that one\u2019s beyond my little dog brain. Try asking about <b>projects</b>, <b>skills</b>, the <b>9 domains</b>, <b>internships</b>, <b>Nientra prices</b> — or just <a href="' + WA + '" target="_blank" rel="noopener">ask Subash directly on WhatsApp</a>.';
+
+const panel = document.getElementById('chatPanel');
+const msgs = document.getElementById('chatMsgs');
+const chipsEl = document.getElementById('chatChips');
+const input = document.getElementById('chatInput');
+let chatOpened = false;
+const CHIPS = ['Show projects','9 domains?','Internship?','Nientra prices','Contact Subash','Play the game'];
+CHIPS.forEach(c => {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = c;
+  b.onclick = () => { userSay(c); rexReply(c); };
+  chipsEl.appendChild(b);
+});
+function addMsg(html, who){
+  const d = document.createElement('div');
+  d.className = 'msg ' + who; d.innerHTML = html; msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight; return d;
+}
+function userSay(text){ addMsg(text.replace(/</g,'&lt;'), 'me'); }
+function rexAnswer(q){
+  const s = ' ' + q.toLowerCase() + ' ';
+  for (const item of BRAIN){ if (item.k.some(k => s.includes(k))) return item.a; }
+  return FALLBACK;
+}
+function rexReply(q){
+  const typing = addMsg('<span class="typing"><span></span><span></span><span></span></span>', 'rex');
+  setTimeout(()=>{ typing.innerHTML = rexAnswer(q); msgs.scrollTop = msgs.scrollHeight; }, 650 + Math.random() * 500);
+  setMascot('emote_pack.gif'); setTimeout(()=> setMascot('idle_breathe.gif'), 2600);
+}
+function openChat(){
+  panel.classList.add('open');
+  if (!chatOpened){
+    chatOpened = true;
+    setTimeout(()=> addMsg('Vanakkam! I\u2019m <b>Rex</b> — I do <b>complete assistance</b> here: tours, answers, directions. Ask me anything about Subash, or tap a chip.', 'rex'), 250);
+  }
+  setTimeout(()=> input.focus(), 60);
+}
+document.getElementById('mascotBtn').addEventListener('click', ()=> {
+  panel.classList.contains('open') ? panel.classList.remove('open') : openChat();
+});
+document.getElementById('chatClose').addEventListener('click', ()=> panel.classList.remove('open'));
+document.getElementById('chatForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = input.value.trim(); if (!v) return;
+  input.value = ''; userSay(v); rexReply(v);
+});
+</script>
+</body>
+</html>
