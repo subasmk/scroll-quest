@@ -22,6 +22,18 @@ body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:
 a{color:inherit}
 img{max-width:100%}
 
+/* ---------- aurora backdrop + cursor glow ---------- */
+body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(480px 480px at 12% 18%, #6d5cff26, transparent 60%),
+   radial-gradient(560px 560px at 88% 12%, #dc26261f, transparent 60%),
+   radial-gradient(640px 640px at 78% 88%, #ffb0202b, transparent 60%),
+   radial-gradient(520px 520px at 18% 85%, #0596691c, transparent 60%);
+  animation:aurora 26s ease-in-out infinite alternate}
+@keyframes aurora{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(2%,2%,0) scale(1.07)}}
+#glow{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:1;opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle, rgba(255,176,32,.20), rgba(109,92,255,.10) 45%, transparent 65%);mix-blend-mode:multiply}
+
 /* ---------- top bar / HUD ---------- */
 #progressBar{position:fixed;top:0;left:0;height:5px;width:0%;background:linear-gradient(90deg,var(--ai),var(--game),var(--amber));z-index:200;transition:width .1s linear}
 header{position:fixed;top:5px;left:0;right:0;z-index:150;display:flex;justify-content:space-between;align-items:center;
@@ -38,14 +50,19 @@ nav.mainnav a.cta:hover{background:#e03131;color:#fff}
 
 /* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-  padding:120px 18px 70px;position:relative;
+  padding:120px 18px 70px;position:relative;overflow:hidden;
   background:
    radial-gradient(600px 300px at 15% 20%, #6d5cff18, transparent 60%),
    radial-gradient(700px 340px at 85% 25%, #dc262616, transparent 60%),
-   radial-gradient(800px 400px at 50% 95%, #ffb02022, transparent 60%), var(--paper)}
+   radial-gradient(800px 400px at 50% 95%, #ffb02022, transparent 60%), transparent}
+.hero .blob{position:absolute;border-radius:50%;filter:blur(52px);pointer-events:none}
+.hero .b1{width:340px;height:340px;background:#6d5cff59;left:-80px;top:8%;animation:float1 11s ease-in-out infinite}
+.hero .b2{width:300px;height:300px;background:#ffb02070;right:-60px;bottom:6%;animation:float2 13s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(52px,34px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-46px,-30px)}}
 .hero .kick{letter-spacing:4px;font-weight:800;font-size:12px;color:#e03131}
-.hero h1{font-size:clamp(52px,11vw,118px);font-weight:900;line-height:.98;letter-spacing:-1px;margin:10px 0 2px}
-.hero h1 .sun{color:#e03131}
+.hero h1{font-size:clamp(56px,12.5vw,138px);font-weight:900;line-height:.98;letter-spacing:-1px;margin:10px 0 2px}
+.hero h1 .sun{color:#e03131;text-shadow:0 6px 34px #e0313155}
 .hero .rotwrap{font-size:clamp(21px,4.2vw,40px);font-weight:800;margin-top:10px;min-height:1.5em}
 .hero .rotwrap #rotWord{display:inline-block;color:#e03131;transition:transform .35s ease,opacity .35s ease}
 .hero p.sub{max-width:640px;color:var(--mut);font-size:clamp(14.5px,2vw,17.5px);line-height:1.6;margin-top:12px}
@@ -56,7 +73,9 @@ nav.mainnav a.cta:hover{background:#e03131;color:#fff}
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.ghost:hover{background:var(--amber);transform:translateY(-2px)}
 .stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:34px}
-.stat{background:var(--card);border:2px solid #14161c14;border-radius:14px;padding:10px 16px;box-shadow:0 4px 0 #14161c10}
+.stat{background:rgba(255,255,255,.72);backdrop-filter:blur(10px) saturate(1.4);border:2px solid #ffffff99;border-radius:14px;padding:10px 16px;box-shadow:0 8px 22px #14161c14;animation:statpop .55s cubic-bezier(.2,1.6,.4,1) backwards}
+.stat:nth-child(2){animation-delay:.09s}.stat:nth-child(3){animation-delay:.18s}.stat:nth-child(4){animation-delay:.27s}
+@keyframes statpop{from{opacity:0;transform:translateY(16px) scale(.9)}}
 .stat b{font-size:19px}
 .stat i{display:block;font-style:normal;font-size:11px;letter-spacing:1.6px;color:var(--mut);font-weight:700}
 .hero .scrollHint{margin-top:44px;font-size:12px;letter-spacing:3px;color:var(--mut);font-weight:700;animation:bob 1.8s ease-in-out infinite}
@@ -85,7 +104,13 @@ section{padding:84px 18px 70px;max-width:1080px;margin:0 auto}
 .mapHint{text-align:center;color:var(--mut);font-size:13px;margin-top:10px;font-weight:600}
 
 /* ---------- worlds ---------- */
-.world{position:relative;border:2.5px solid #14161c;border-radius:24px;padding:30px 26px 26px;margin-bottom:26px;overflow:hidden;background:var(--card)}
+.world{--wc:#999;position:relative;border:2.5px solid #14161c;border-top:8px solid var(--wc);border-radius:24px;padding:30px 26px 26px;margin-bottom:26px;overflow:hidden;
+  background:linear-gradient(165deg, color-mix(in srgb, var(--wc) 14%, #ffffff), #ffffff 58%);box-shadow:0 14px 34px #14161c10}
+.world .stamp{position:absolute;top:16px;right:16px;font-weight:900;letter-spacing:1.5px;font-size:12.5px;color:var(--wc);
+  border:2.5px solid var(--wc);padding:5px 10px;border-radius:8px;background:#ffffffd9;opacity:0;transform:rotate(7deg) scale(2.2);pointer-events:none;z-index:2}
+.world.cleared{border-color:var(--wc);box-shadow:0 16px 40px color-mix(in srgb, var(--wc) 26%, transparent)}
+.world.cleared .stamp{animation:stampIn .45s cubic-bezier(.2,2.2,.4,1) forwards}
+@keyframes stampIn{to{opacity:1;transform:rotate(7deg) scale(1)}}
 .world::before{content:attr(data-num);position:absolute;right:6px;top:-38px;font-size:150px;font-weight:900;opacity:.07;pointer-events:none}
 .world .whead{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .world .dot{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:23px;flex:none;border:2px solid #14161c22}
@@ -123,11 +148,11 @@ section{padding:84px 18px 70px;max-width:1080px;margin:0 auto}
 .contact{text-align:center}
 .contact .big{font-size:clamp(26px,5vw,42px);font-weight:900;line-height:1.2}
 .contact .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
-footer{text-align:center;color:var(--mut);font-size:13px;padding:26px 16px 120px;line-height:1.7}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:26px 16px 185px;line-height:1.7}
 footer a{font-weight:700}
 
 /* ---------- mascot + assistant ---------- */
-#mascotWrap{position:fixed;left:14px;bottom:12px;z-index:300;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+#mascotWrap{position:fixed;left:14px;bottom:66px;z-index:300;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
 #bubble{max-width:250px;background:#fff;border:2.5px solid var(--ink);border-radius:16px;border-bottom-left-radius:4px;
   padding:10px 13px;font-size:13.5px;line-height:1.45;font-weight:600;box-shadow:0 8px 24px rgba(20,22,28,.18);
   opacity:0;transform:translateY(8px) scale(.96);transition:all .3s ease;pointer-events:none}
@@ -144,7 +169,7 @@ footer a{font-weight:700}
 @keyframes pl{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
 
 /* chat panel */
-#chatPanel{position:fixed;left:14px;bottom:92px;z-index:310;width:min(360px,calc(100vw - 28px));height:min(520px,calc(100svh - 120px));
+#chatPanel{position:fixed;left:14px;bottom:146px;z-index:310;width:min(360px,calc(100vw - 28px));height:min(520px,calc(100svh - 175px));
   background:#fff;border:2.5px solid var(--ink);border-radius:20px;box-shadow:0 24px 60px rgba(20,22,28,.3);
   display:none;flex-direction:column;overflow:hidden}
 #chatPanel.open{display:flex}
@@ -172,11 +197,34 @@ footer a{font-weight:700}
 .typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
 @keyframes tp{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
 @media(max-width:640px){ #bubble{max-width:200px;font-size:12.5px} #mascotBtn img{width:44px;height:44px} }
+
+/* ---------- quest track: Rex runs as you scroll ---------- */
+#questTrack{position:fixed;left:0;right:0;bottom:0;height:56px;z-index:290;pointer-events:none;
+  background:linear-gradient(180deg, transparent, rgba(255,249,239,.92) 40%)}
+#questTrack .road{position:absolute;left:0;right:0;bottom:16px;border-top:3px dashed #14161c33}
+#trackDots .tdot{position:absolute;bottom:9px;width:17px;height:17px;margin-left:-8.5px;border-radius:50%;
+  background:#fff;border:2.5px solid #14161c55;font-size:10px;line-height:1;display:flex;align-items:center;justify-content:center;color:transparent;transition:all .3s ease}
+#trackDots .tdot.got{background:var(--amber);border-color:var(--ink);color:var(--ink);transform:scale(1.25)}
+#runner{position:absolute;bottom:20px;width:50px;height:50px;object-fit:contain;transform:translateX(-50%);
+  filter:drop-shadow(0 4px 5px rgba(20,22,28,.3));transition:left .18s ease-out}
+#runner.run{animation:runbob .34s ease-in-out infinite}
+@keyframes runbob{0%,100%{margin-bottom:0}50%{margin-bottom:6px}}
+#questTrack .flag{position:absolute;right:6px;bottom:20px;font-size:21px}
+#starHud{position:fixed;right:14px;bottom:66px;z-index:295;display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.8);
+  backdrop-filter:blur(10px);border:2px solid var(--ink);border-radius:999px;padding:7px 14px;font-weight:900;font-size:13.5px;box-shadow:0 8px 22px rgba(20,22,28,.16)}
+#starHud span{font-size:10px;letter-spacing:1.3px;color:var(--mut);font-weight:800;white-space:nowrap}
+#starHud.pop{animation:hudpop .4s ease}
+@keyframes hudpop{40%{transform:scale(1.13)}}
+@media(max-width:640px){
+  #questTrack{height:48px} #runner{width:40px;height:40px;bottom:16px} #questTrack .flag{bottom:16px;font-size:18px}
+  #mascotWrap{bottom:56px} #chatPanel{bottom:132px} #starHud{bottom:58px;font-size:12px;padding:6px 11px} #starHud span{display:none}
+}
 </style>
 </head>
 <body>
 
 <div id="progressBar"></div>
+<div id="glow" aria-hidden="true"></div>
 
 <header>
   <a class="logo" href="#top">SUBASH <span>MK</span><small>POLYMATH BUILDER</small></a>
@@ -191,6 +239,8 @@ footer a{font-weight:700}
 
 <!-- ================= HERO ================= -->
 <div class="hero" id="top">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
   <div class="kick">COIMBATORE · INDIA · BUILDING IN PUBLIC</div>
   <h1>SUBASH <span class="sun">MK</span></h1>
   <div class="rotwrap">One mind. <span id="rotWord">Nine domains.</span></div>
@@ -278,6 +328,15 @@ footer a{font-weight:700}
   Startup: <a href="https://nientra.xyz" target="_blank" rel="noopener">Nientra</a>
 </footer>
 
+<!-- ================= QUEST TRACK ================= -->
+<div id="questTrack" aria-hidden="true">
+  <div class="road"></div>
+  <div id="trackDots"></div>
+  <img id="runner" src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="" style="left:2%">
+  <div class="flag">&#127937;</div>
+</div>
+<div id="starHud" aria-hidden="true">&#11088; <b id="starCount">0/9</b><span id="starWorld">QUEST START — SCROLL!</span></div>
+
 <!-- ================= MASCOT / ASSISTANT ================= -->
 <div id="mascotWrap">
   <div id="bubble"></div>
@@ -361,10 +420,12 @@ const WORLDS = [
 
 /* ================================================= RENDER WORLDS */
 const list = document.getElementById('worldList');
-WORLDS.forEach(w=>{
+WORLDS.forEach((w, wi)=>{
   const el = document.createElement('article');
   el.className = 'world reveal'; el.id = 'world-' + w.id; el.dataset.num = w.num;
+  el.style.setProperty('--wc', w.hex); el.style.transitionDelay = (wi * 70) + 'ms';
   el.innerHTML =
+    '<div class="stamp">&#9733; CLEARED</div>' +
     '<div class="whead"><div class="dot" style="background:' + w.hex + '22">' + w.icon + '</div>' +
     '<h3 style="color:' + w.hex + '">' + w.name + '</h3>' +
     '<span class="badge ' + w.status + '">' + w.statusTxt + '</span></div>' +
@@ -554,6 +615,62 @@ document.getElementById('chatForm').addEventListener('submit', e => {
   const v = input.value.trim(); if (!v) return;
   input.value = ''; userSay(v); rexReply(v);
 });
+
+/* ================================================= QUEST TRACK + STARS */
+const trackDots = document.getElementById('trackDots');
+WORLDS.forEach((w, i) => {
+  const d = document.createElement('div');
+  d.className = 'tdot'; d.id = 'tdot-' + w.id;
+  d.style.left = ((i + .5) / 9 * 100) + '%'; d.textContent = '\u2605';
+  trackDots.appendChild(d);
+});
+const runner = document.getElementById('runner');
+const starHud = document.getElementById('starHud');
+const starCount = document.getElementById('starCount');
+const starWorld = document.getElementById('starWorld');
+let lastY = scrollY, runTimer = null;
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = h.scrollTop / ((h.scrollHeight - h.clientHeight) || 1);
+  runner.style.left = (2 + p * 92) + '%';
+  const dir = h.scrollTop >= lastY ? 1 : -1; lastY = h.scrollTop;
+  runner.style.transform = 'translateX(-50%) scaleX(' + dir + ')';
+  runner.classList.add('run');
+  clearTimeout(runTimer);
+  runTimer = setTimeout(() => runner.classList.remove('run'), 170);
+}, { passive:true });
+
+const collected = new Set();
+const starObs = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const id = e.target.id.replace('world-', '');
+  const w = WORLDS.find(x => x.id === id); if (!w) return;
+  starWorld.textContent = 'WORLD ' + w.num + ' / 9';
+  if (collected.has(id)) return;
+  collected.add(id);
+  e.target.classList.add('cleared');
+  const dot = document.getElementById('tdot-' + id); if (dot) dot.classList.add('got');
+  starCount.textContent = collected.size + '/9';
+  starHud.classList.remove('pop'); void starHud.offsetWidth; starHud.classList.add('pop');
+  if (collected.size === 9) {
+    setMascot('celebrate_jump.gif');
+    say('&#127942; <b>QUEST COMPLETE!</b> All 9 worlds cleared — now the final door: talk to Subash!', 6500);
+    setTimeout(() => setMascot('idle_breathe.gif'), 3600);
+  }
+}), { threshold:.4 });
+document.querySelectorAll('.world').forEach(el => starObs.observe(el));
+
+/* ================================================= CURSOR GLOW (desktop) */
+const glowEl = document.getElementById('glow');
+if (matchMedia('(pointer:fine)').matches) {
+  let gx = innerWidth / 2, gy = innerHeight / 2, tx = gx, ty = gy;
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; glowEl.style.opacity = '1'; });
+  (function glowLoop(){
+    gx += (tx - gx) * .08; gy += (ty - gy) * .08;
+    glowEl.style.transform = 'translate(' + (gx - 170) + 'px,' + (gy - 170) + 'px)';
+    requestAnimationFrame(glowLoop);
+  })();
+}
 </script>
 </body>
 </html>
