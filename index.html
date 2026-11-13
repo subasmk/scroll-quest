@@ -785,6 +785,22 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   .hero .heroSide{grid-column:2;grid-row:1 / span 14;position:static;transform:none;display:flex;flex-direction:column;gap:12px;width:232px;margin-top:0}
 }
 
+/* =========================================================
+   CLEANUP LAYER - Impeccable detect fixes (real issues only;
+   the intentional editorial style above is preserved):
+   contrast floor 4.5:1, type floor for labels, smooth easing.
+========================================================= */
+:root{--mut:#5d5952}
+.logo small{color:#5d5952;font-size:9.5px}
+.hsCard i{color:#5d5952;font-size:12px}
+.hero .kick,.secHead .kick{font-size:12px}
+#chatPanel .chead i{font-size:12px}
+#starHud span{font-size:11px}
+.stat{animation-timing-function:cubic-bezier(.22,1,.36,1)}
+.world.cleared .stamp{animation-timing-function:cubic-bezier(.22,1,.36,1)}
+#chatInput::placeholder{color:#5d6a7d}
+.filter-btn,.tool-btn{font-size:11px}
+
 </style>
 </head>
 <body>
@@ -814,8 +830,8 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <div class="heroSub">AI&amp;DS STUDENT <span>· VSB COLLEGE OF ENGINEERING</span></div>
   <div class="rotwrap">One mind. <span id="rotWord">Nine domains.</span></div>
   <p class="sub">I'm a B.Tech <b>AI &amp; Data Science</b> student at VSB College of Engineering and the founder of
-  <b>Nientra</b>. I don't specialise in one thing — I build across <b>nine domains</b> and connect them.
-  Scroll through my worlds — and if you get lost, <b>Rex</b>, my mascot, is right there in the corner to help.</p>
+  <b>Nientra</b>. I don't specialise in one thing, I build across <b>nine domains</b> and connect them.
+  Scroll through my worlds, and if you get lost, <b>Rex</b>, my mascot, is right there in the corner to help.</p>
   <div class="ctaRow">
     <a class="btn solid" href="#map">Explore my 9 worlds</a>
     <a class="btn ghost" href="https://subasmk.github.io/3d-portfolio/" target="_blank" rel="noopener">Drive my portfolio</a>
@@ -833,7 +849,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
     <div class="hsCard"><b>19</b><i>years old · Coimbatore</i></div>
     <div class="hsCard"><b>FOUNDER</b><i>of Nientra · work less, win more</i></div>
   </div>
-  <div class="scrollHint">SCROLL — THE QUEST BEGINS &#9660;</div>
+  <div class="scrollHint">SCROLL, THE QUEST BEGINS &#9660;</div>
   <aside class="hero-side-note"><b>FIELD NOTE / 001</b>Curiosity is the only roadmap. The rest is built one project at a time.</aside>
 </div>
 
@@ -844,11 +860,11 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <div class="secHead reveal">
     <div class="kick">THE KNOWLEDGE MAP</div>
     <h2>Nine worlds. One brain.</h2>
-    <p>A polymath isn't nine separate people — the power is in the <b>connections</b>. AI feeds my games,
+    <p>A polymath isn't nine separate people. The power is in the <b>connections</b>. AI feeds my games,
     security sharpens my apps, cloud ships them all. Tap a world to jump into it.</p>
   </div>
   <canvas id="mapCanvas" width="1040" height="560" class="reveal" tabindex="0" role="img" aria-label="Interactive map of nine connected skill worlds. Use arrow keys to move between worlds and Enter to explore."></canvas>
-  <p class="mapHint">Tap / click a node — Rex will take you there.</p>
+  <p class="mapHint">Tap / click a node, Rex will take you there.</p>
 </section>
 
 <!-- ================= WORLDS ================= -->
@@ -856,7 +872,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <div class="secHead reveal">
     <div class="kick">THE QUEST</div>
     <h2>World by world</h2>
-    <p>Every world shows its status honestly — <b>Shipped</b> means you can try it, <b>Building</b> means proof is
+    <p>Every world shows its status honestly: <b>Shipped</b> means you can try it, <b>Building</b> means proof is
     in progress, <b>Exploring</b> means I'm learning it in public right now.</p>
   </div>
   <div class="world-tools reveal" id="worldTools" aria-label="World explorer controls">
@@ -876,7 +892,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <div id="worldList"></div>
 
   <div class="forge reveal">
-    <h3>THE SKILLFORGE — how I learn every world</h3>
+    <h3>THE SKILLFORGE, how I learn every world</h3>
     <p>Nine domains, one method. Nothing counts as "known" in my tracker until it passes all five proof gates —
     the same discipline behind my Polymath Tracker &amp; SkillForge plan.</p>
     <div class="steps">
@@ -892,7 +908,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 <!-- ================= NIENTRA ================= -->
 <section id="nientra" style="padding-top:10px">
   <div class="nientra reveal">
-    <h3>NIENTRA — WORK LESS. WIN MORE.</h3>
+    <h3>NIENTRA, WORK LESS. WIN MORE.</h3>
     <p>My startup. I build websites, AI chat assistants and automations for local businesses —
     starting with a &#8377;999 pilot so you see it work before you pay big.</p>
     <a class="btn" href="https://nientra.xyz" target="_blank" rel="noopener">Visit nientra.xyz</a>
@@ -914,7 +930,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 </section>
 
 <footer>
-  Built by Subash Mk — one static HTML file. No frameworks, no build step, loads instantly.<br>
+  Built by Subash Mk, one static HTML file. No frameworks, no build step, loads instantly.<br>
   Mascot: <b>Rex</b> (from Shiba Desktop) · 3D version: <a href="https://subash-folio.vercel.app" target="_blank" rel="noopener">drive my portfolio</a> ·
   Startup: <a href="https://nientra.xyz" target="_blank" rel="noopener">Nientra</a>
 </footer>
@@ -926,7 +942,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <img id="runner" src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="" style="left:2%">
   <div class="flag">&#127937;</div>
 </div>
-<div id="starHud" aria-hidden="true">&#11088; <b id="starCount">0/9</b><span id="starWorld">QUEST START — SCROLL!</span></div>
+<div id="starHud" aria-hidden="true">&#11088; <b id="starCount">0/9</b><span id="starWorld">QUEST START, SCROLL!</span></div>
 
 <!-- ================= MASCOT / ASSISTANT ================= -->
 
@@ -940,7 +956,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <div id="bubble"></div>
   <button id="mascotBtn" aria-label="Chat with Rex, the assistant">
     <img src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="Rex the Shiba mascot">
-    <span class="mt"><b>Rex</b><i>YOUR GUIDE — ASK ME</i></span>
+    <span class="mt"><b>Rex</b><i>YOUR GUIDE, ASK ME</i></span>
     <span class="pulse"></span>
   </button>
 </div>
@@ -948,7 +964,7 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 <div id="chatPanel" role="dialog" aria-label="Chat with Rex">
   <div class="chead">
     <img src="https://raw.githubusercontent.com/subasmk/shiba-desktop/main/idle_breathe.gif" alt="Rex">
-    <div><b>Rex — Subash's assistant</b><i>I know all 9 worlds. Ask me anything.</i></div>
+    <div><b>Rex, Subash's assistant</b><i>I know all 9 worlds. Ask me anything.</i></div>
     <button id="chatClose" aria-label="Close chat">&times;</button>
   </div>
   <div id="chatMsgs"></div>
@@ -963,56 +979,56 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 /* ================================================= WORLDS DATA */
 const WORLDS = [
  { id:'ai', num:'01', name:'AI Engineering & Agents', icon:'\u{1F916}', color:'var(--ai)', hex:'#6d5cff', status:'shipped', statusTxt:'SHIPPED',
-   tag:'My home world. I build AI that lives on your desk and talks back — local brains, voice, wake words and agents that actually do things.',
+   tag:'My home world. I build AI that lives on your desk and talks back, local brains, voice, wake words and agents that actually do things.',
    proofs:[
      {t:'Shiba Desktop (Rex)', d:'AI desktop pet with continuous voice, wake word, a local offline brain (Ollama) and Tamil voice. Shipped as real Windows builds.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
      {t:'MockMentor', d:'AI mock-interview coach that practices you from your own resume and reviews your answers.', l:'https://github.com/subasmk/MOCK-MENTOR', lt:'GitHub'}],
    chips:['Python','Ollama / LLMs','Whisper ASR','TTS & voice cloning','Agents','Prompt engineering'] },
  { id:'fullstack', num:'02', name:'Full-Stack Development', icon:'\u{1F4BB}', color:'var(--fullstack)', hex:'#0284c7', status:'shipped', statusTxt:'SHIPPED',
-   tag:'From database schema to the pixel. I design it, build it, ship it — this very page is one static HTML file, written by hand.',
+   tag:'From database schema to the pixel. I design it, build it, ship it, this very page is one static HTML file, written by hand.',
    proofs:[
-     {t:'Nientra — client websites', d:'A services business built end-to-end: bold poster site, prices, and a WhatsApp pipeline that turns visitors into enquiries.', l:'https://nientra.xyz', lt:'Live site'},
-     {t:'This portfolio', d:'One static HTML file. No framework, no build step — and a mascot assistant with a built-in brain, written in vanilla JavaScript.', l:'https://github.com/subasmk', lt:'My GitHub'}],
+     {t:'Nientra, client websites', d:'A services business built end-to-end: bold poster site, prices, and a WhatsApp pipeline that turns visitors into enquiries.', l:'https://nientra.xyz', lt:'Live site'},
+     {t:'This portfolio', d:'One static HTML file. No framework, no build step, and a mascot assistant with a built-in brain, written in vanilla JavaScript.', l:'https://github.com/subasmk', lt:'My GitHub'}],
    chips:['JavaScript','React','Node.js','MySQL','HTML/CSS','REST APIs'] },
  { id:'game', num:'03', name:'Game Development', icon:'\u{1F3AE}', color:'var(--game)', hex:'#dc2626', status:'shipped', statusTxt:'SHIPPED',
-   tag:'Games are where my worlds collide — AI, 3D and computer vision in one arena. My gesture games are playable right now, online.',
+   tag:'Games are where my worlds collide, AI, 3D and computer vision in one arena. My gesture games are playable right now, online.',
    proofs:[
-     {t:'Nuketown — Gesture Arena', d:'A 3D multiplayer arena you control with hand gestures on a webcam: aim with your hand, pinch to shoot. Live on the web.', l:'https://nuketown-gesture.onrender.com', lt:'Play it live'},
-     {t:'Valorant Gesture Control', d:'Play a tactical FPS with hand gestures instead of a mouse — MediaPipe hand tracking driving real input.', l:'https://github.com/subasmk/valorant-gesture-control', lt:'GitHub'}],
+     {t:'Nuketown, Gesture Arena', d:'A 3D multiplayer arena you control with hand gestures on a webcam: aim with your hand, pinch to shoot. Live on the web.', l:'https://nuketown-gesture.onrender.com', lt:'Play it live'},
+     {t:'Valorant Gesture Control', d:'Play a tactical FPS with hand gestures instead of a mouse, MediaPipe hand tracking driving real input.', l:'https://github.com/subasmk/valorant-gesture-control', lt:'GitHub'}],
    chips:['Three.js','MediaPipe','Socket.IO','Game physics','Multiplayer','Webcam CV'] },
  { id:'app', num:'04', name:'App Development', icon:'\u{1F4F1}', color:'var(--app)', hex:'#db2777', status:'building', statusTxt:'BUILDING',
-   tag:'Desktop and mobile apps that feel alive — characters, voice and personality included, not just screens and forms.',
+   tag:'Desktop and mobile apps that feel alive, characters, voice and personality included, not just screens and forms.',
    proofs:[
      {t:'Shiba Desktop app', d:'A full Electron app: drag-out desktop pet, launcher, focus timer, routines and a settings dashboard. Version 0.2.x, Windows builds released.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
-     {t:'Polymath Tracker', d:'My own nine-domain skill tracker with proof gates and progress sync — the plan behind this portfolio.', l:'https://github.com/subasmk/polymath-tracker', lt:'GitHub'}],
+     {t:'Polymath Tracker', d:'My own nine-domain skill tracker with proof gates and progress sync, the plan behind this portfolio.', l:'https://github.com/subasmk/polymath-tracker', lt:'GitHub'}],
    chips:['Electron','JavaScript','UI/UX','Mobile web apps','Local-first data'] },
  { id:'cyber', num:'05', name:'Cybersecurity', icon:'\u{1F6E1}\u{FE0F}', color:'var(--cyber)', hex:'#059669', status:'building', statusTxt:'BUILDING',
    tag:'Building the shield while I build everything else. My rule: if I ship it, I should know how it breaks.',
    proofs:[
-     {t:'ScamRadar', d:'A scam-detection project — spotting fraudulent patterns before they spot you.', l:'https://github.com/subasmk/scamradar', lt:'GitHub'},
-     {t:'Secure-by-habit builds', d:'Server-side checks, no leaked answers, no trust in the client — lessons baked into my multiplayer game work.', l:'https://github.com/subasmk', lt:'My GitHub'}],
+     {t:'ScamRadar', d:'A scam-detection project, spotting fraudulent patterns before they spot you.', l:'https://github.com/subasmk/scamradar', lt:'GitHub'},
+     {t:'Secure-by-habit builds', d:'Server-side checks, no leaked answers, no trust in the client, lessons baked into my multiplayer game work.', l:'https://github.com/subasmk', lt:'My GitHub'}],
    chips:['Threat thinking','Web security basics','Auth & sessions','OSINT awareness'] },
  { id:'cloud', num:'06', name:'Cloud Computing', icon:'\u2601\u{FE0F}', color:'var(--cloud)', hex:'#0891b2', status:'building', statusTxt:'BUILDING',
-   tag:'My projects don\u2019t live on localhost. Games, sites and demos — deployed, kept alive and reachable from anywhere.',
+   tag:'My projects don\u2019t live on localhost. Games, sites and demos, deployed, kept alive and reachable from anywhere.',
    proofs:[
-     {t:'Live deployments', d:'A multiplayer game server kept awake on Render, sites on Vercel and GitHub Pages — real hosting, real uptime problems, solved.', l:'https://nuketown-gesture.onrender.com', lt:'Live demo'},
+     {t:'Live deployments', d:'A multiplayer game server kept awake on Render, sites on Vercel and GitHub Pages, real hosting, real uptime problems, solved.', l:'https://nuketown-gesture.onrender.com', lt:'Live demo'},
      {t:'Nientra on its own domain', d:'Custom-domain deployment with the repo as the single source of truth.', l:'https://nientra.xyz', lt:'Live site'}],
    chips:['Render','Vercel','GitHub Pages','Domains & DNS','Keep-alive ops'] },
  { id:'devops', num:'07', name:'DevOps', icon:'\u2699\u{FE0F}', color:'var(--devops)', hex:'#ea580c', status:'building', statusTxt:'BUILDING',
    tag:'Pipelines that test while I sleep. My desktop app\u2019s Windows builds are verified by CI before anyone downloads them.',
    proofs:[
-     {t:'Windows CI for Rex', d:'GitHub Actions smoke-tests every packaged Windows build — launch, voice turns, barge-in, clean stop — before release.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
+     {t:'Windows CI for Rex', d:'GitHub Actions smoke-tests every packaged Windows build, launch, voice turns, barge-in, clean stop, before release.', l:'https://github.com/subasmk/shiba-desktop', lt:'GitHub'},
      {t:'Git discipline', d:'40+ repos, PAT-based automation, multi-agent workflows that commit without stepping on each other.', l:'https://github.com/subasmk', lt:'My GitHub'}],
    chips:['GitHub Actions','CI smoke tests','Git & GitHub','Release workflows','Automation'] },
  { id:'web3', num:'08', name:'Blockchain / Web3', icon:'\u26D3\u{FE0F}', color:'var(--web3)', hex:'#9333ea', status:'exploring', statusTxt:'EXPLORING',
-   tag:'Honest status: exploring. I\u2019m learning how decentralised systems actually work — blocks, hashes, consensus — before I claim any of it. Proof gate: not passed yet.',
+   tag:'Honest status: exploring. I\u2019m learning how decentralised systems actually work, blocks, hashes, consensus, before I claim any of it. Proof gate: not passed yet.',
    proofs:[
-     {t:'SkillForge plan — Domain 8', d:'This world is in my nine-domain tracker with its own checklist and readiness tests. When I ship proof, it will appear here first.', l:'https://github.com/subasmk/polymath-tracker', lt:'See the plan'}],
+     {t:'SkillForge plan, Domain 8', d:'This world is in my nine-domain tracker with its own checklist and readiness tests. When I ship proof, it will appear here first.', l:'https://github.com/subasmk/polymath-tracker', lt:'See the plan'}],
    chips:['Blockchain fundamentals','Hashing','Wallets & keys','Smart-contract basics (learning)'] },
  { id:'reverse', num:'09', name:'Reverse Engineering', icon:'\u{1F50D}', color:'var(--reverse)', hex:'#475569', status:'exploring', statusTxt:'EXPLORING',
-   tag:'Honest status: exploring. Taking things apart to see how they think — binaries, protocols, other people\u2019s systems — is the deepest way to learn how to build my own.',
+   tag:'Honest status: exploring. Taking things apart to see how they think, binaries, protocols, other people\u2019s systems, is the deepest way to learn how to build my own.',
    proofs:[
-     {t:'SkillForge plan — Domain 9', d:'In the tracker, with checklists and proof gates like every other world. Nothing faked, nothing claimed early.', l:'https://github.com/subasmk/polymath-tracker', lt:'See the plan'}],
+     {t:'SkillForge plan, Domain 9', d:'In the tracker, with checklists and proof gates like every other world. Nothing faked, nothing claimed early.', l:'https://github.com/subasmk/polymath-tracker', lt:'See the plan'}],
    chips:['Debugging deep-dives','Protocols & formats','Binary basics (learning)','Systems thinking'] },
 ];
 
