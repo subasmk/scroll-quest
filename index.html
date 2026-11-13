@@ -763,6 +763,26 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
 #mascotBtn{box-shadow:5px 5px 0 rgba(32,31,28,.85)}
 #mascotBtn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(32,31,28,.85)}
 
+/* =========================================================
+   SKETCH HERO LAYER — from Subash's notebook sketch:
+   side fact cards (Polymath / 40+ repos / 19 / Founder of
+   Nientra), AI&DS subtitle, status pill, Drive + See CV.
+========================================================= */
+.statusPill{display:inline-flex;align-items:center;gap:8px;margin:18px 0 2px;background:#fffdf7;border:1.5px solid var(--ink);
+  padding:7px 13px;font-size:11px;font-weight:900;letter-spacing:1.6px;color:var(--ink);box-shadow:4px 4px 0 rgba(32,31,28,.9)}
+.statusPill .sdot{width:9px;height:9px;border-radius:50%;background:#1f9d55;flex:none;animation:pl 2s infinite}
+.heroSub{margin-top:16px;font-family:Arial Black,Arial,sans-serif;font-size:clamp(15px,2.4vw,23px);letter-spacing:2.5px;color:var(--ink)}
+.heroSub span{color:var(--amber)}
+.hero .stats{display:none}
+.heroSide{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;max-width:560px}
+.hsCard{background:#fffdf7;border:1.5px solid var(--ink);padding:12px 14px;box-shadow:5px 5px 0 rgba(32,31,28,.9);transition:transform .15s ease,box-shadow .15s ease}
+.hsCard:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 rgba(32,31,28,.9)}
+.hsCard b{display:block;font-family:Arial Black,Arial,sans-serif;font-size:19px;letter-spacing:.5px;color:var(--ink)}
+.hsCard i{font-style:normal;font-size:11px;font-weight:700;letter-spacing:1.1px;color:#716d65;text-transform:uppercase}
+@media(min-width:1500px){
+  .heroSide{display:flex;flex-direction:column;gap:12px;position:absolute;right:clamp(30px,5vw,96px);top:50%;transform:translateY(-50%);width:220px;margin-top:0;z-index:3}
+}
+
 </style>
 </head>
 <body>
@@ -787,20 +807,29 @@ nav.mainnav a.cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(3
   <div class="blob b1" aria-hidden="true"></div>
   <div class="blob b2" aria-hidden="true"></div>
   <div class="kick">COIMBATORE · INDIA · BUILDING IN PUBLIC</div>
+    <div class="statusPill"><span class="sdot"></span>OPEN TO INTERNSHIPS · COIMBATORE</div>
   <h1>SUBASH <span class="sun">MK</span></h1>
+  <div class="heroSub">AI&amp;DS STUDENT <span>· VSB COLLEGE OF ENGINEERING</span></div>
   <div class="rotwrap">One mind. <span id="rotWord">Nine domains.</span></div>
   <p class="sub">I'm a B.Tech <b>AI &amp; Data Science</b> student at VSB College of Engineering and the founder of
   <b>Nientra</b>. I don't specialise in one thing — I build across <b>nine domains</b> and connect them.
   Scroll through my worlds — and if you get lost, <b>Rex</b>, my mascot, is right there in the corner to help.</p>
   <div class="ctaRow">
     <a class="btn solid" href="#map">Explore my 9 worlds</a>
-    <a class="btn ghost" href="#contact">Work with me</a>
+    <a class="btn ghost" href="https://subasmk.github.io/3d-portfolio/" target="_blank" rel="noopener">Drive my portfolio</a>
+    <a class="btn solid" href="cv.pdf" target="_blank" rel="noopener">See CV</a>
   </div>
   <div class="stats">
     <div class="stat"><b>9</b><i>DOMAINS</i></div>
     <div class="stat"><b>40+</b><i>PUBLIC REPOS</i></div>
     <div class="stat"><b>3</b><i>LIVE PRODUCTS</i></div>
     <div class="stat"><b>19</b><i>YEARS OLD</i></div>
+  </div>
+  <div class="heroSide" aria-label="Quick facts">
+    <div class="hsCard"><b>POLYMATH</b><i>9 domains · one mind</i></div>
+    <div class="hsCard"><b>40+</b><i>public repos on GitHub</i></div>
+    <div class="hsCard"><b>19</b><i>years old · Coimbatore</i></div>
+    <div class="hsCard"><b>FOUNDER</b><i>of Nientra · work less, win more</i></div>
   </div>
   <div class="scrollHint">SCROLL — THE QUEST BEGINS &#9660;</div>
   <aside class="hero-side-note"><b>FIELD NOTE / 001</b>Curiosity is the only roadmap. The rest is built one project at a time.</aside>
