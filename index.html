@@ -475,6 +475,23 @@ footer{border-top:1px solid var(--line);max-width:1100px;margin:0 auto}
  .reveal{transition:none!important}
 }
 
+
+/* Mobile navigation and touch polish */
+.menu-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:#ffffff08;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+.menu-toggle span{display:block;width:17px;height:2px;border-radius:2px;background:#eaf1fb;transition:transform .2s,opacity .2s}
+@media(max-width:640px){
+  header{gap:10px}
+  .menu-toggle{display:flex;margin-left:auto}
+  nav.mainnav{display:none;position:absolute;top:calc(100% + 1px);left:10px;right:10px;padding:12px;background:rgba(10,17,29,.97);border:1px solid #ffffff20;border-radius:15px;box-shadow:0 18px 45px #000b;flex-direction:column;align-items:stretch;gap:4px}
+  nav.mainnav.mobile-open{display:flex}
+  nav.mainnav a,nav.mainnav a:not(.cta){display:block!important;padding:12px 13px;border-radius:9px;font-size:13px}
+  nav.mainnav a:hover{background:#ffffff0d}
+  nav.mainnav a.cta{text-align:center;margin-top:5px}
+  header.menu-active .menu-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.menu-active .menu-toggle span:nth-child(2){opacity:0}
+  header.menu-active .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
 </style>
 </head>
 <body>
@@ -484,7 +501,8 @@ footer{border-top:1px solid var(--line);max-width:1100px;margin:0 auto}
 
 <header>
   <a class="logo" href="#top">SUBASH <span>MK</span><small>POLYMATH BUILDER</small></a>
-  <nav class="mainnav">
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNavigation"><span></span><span></span><span></span></button>
+  <nav class="mainnav" id="mainNavigation">
     <a href="#map">9 Worlds</a>
     <a href="#worlds">Explore</a>
     <a href="#nientra">Nientra</a>
@@ -1030,6 +1048,23 @@ document.querySelectorAll('.world').forEach(el=>questObserver.observe(el,{attrib
 /* Update canvas accessible label with the selected world. */
 const originalGoWorld=goWorld;
 goWorld=function(w){focusIndex=WORLDS.indexOf(w);cv.setAttribute('aria-label','Selected world: '+w.name+'. Use arrow keys to move between worlds and Enter to explore.');originalGoWorld(w);playUiTone(760)};
+
+
+/* Responsive navigation */
+const menuToggle=document.getElementById('menuToggle');
+const mainNavigation=document.getElementById('mainNavigation');
+menuToggle.addEventListener('click',()=>{
+  const open=mainNavigation.classList.toggle('mobile-open');
+  document.querySelector('header').classList.toggle('menu-active',open);
+  menuToggle.setAttribute('aria-expanded',String(open));
+  menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+});
+mainNavigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mainNavigation.classList.remove('mobile-open');
+  document.querySelector('header').classList.remove('menu-active');
+  menuToggle.setAttribute('aria-expanded','false');
+  menuToggle.setAttribute('aria-label','Open navigation');
+}));
 
 </script>
 </body>
